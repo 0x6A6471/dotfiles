@@ -1,0 +1,20 @@
+# ignore everything by default
+/*
+
+# but not these files
+!.gitignore
+!README.md
+.Xprofile
+.Xresources
+
+# allow .config directory
+!/.config
+
+# ignore everything in .config by default
+/.config/*
+
+# but not these dirs
+!/.config/fish
+!/.config/ghostty
+!/.config/nvim
+

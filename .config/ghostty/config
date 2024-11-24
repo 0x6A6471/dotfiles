@@ -1,0 +1,15 @@
+background = 000000
+theme = Broadcast
+
+font-family = Berkeley Mono
+font-size = 10
+
+shell-integration-features = no-cursor, no-sudo, no-title
+
+# annoying "confirm close" dialog
+confirm-close-surface = false
+
+gtk-tabs-location = bottom
+gtk-wide-tabs = false
+# gtk-titlebar = false
+adw-toolbar-style = raised-border
