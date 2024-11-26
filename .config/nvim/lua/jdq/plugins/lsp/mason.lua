@@ -24,6 +24,7 @@ return {
 				"tailwindcss",
 				"ts_ls",
 			},
+			highlight = true,
 			-- auto-install with lspconfig
 			automatic_installation = true,
 		})

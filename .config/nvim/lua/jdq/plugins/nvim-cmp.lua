@@ -9,12 +9,38 @@ return {
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
 		"rafamadriz/friendly-snippets",
+		"roobert/tailwindcss-colorizer-cmp.nvim",
+		-- "zbirenbaum/copilot.lua",
+		-- "zbirenbaum/copilot-cmp",
 	},
 	config = function()
+		-- require("copilot").setup({
+		-- 	suggestion = { enabled = false },
+		-- 	panel = { enabled = false },
+		-- })
+
+		-- require("copilot_cmp").setup()
 		local cmp = require("cmp")
 		local luasnip = require("luasnip")
 		local lspkind = require("lspkind")
-		lspkind.init({})
+		lspkind.init({
+			symbol_map = {
+				Copilot = "",
+			},
+		})
+
+		vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
+
+		local kind_formatter = lspkind.cmp_format({
+			mode = "symbol_text",
+			menu = {
+				buffer = "[buf]",
+				nvim_lsp = "[LSP]",
+				nvim_lua = "[api]",
+				path = "[path]",
+				luasnip = "[snip]",
+			},
+		})
 
 		cmp.setup({
 			completion = {
@@ -53,12 +79,26 @@ return {
 				end, { "i", "s" }),
 			}),
 			sources = cmp.config.sources({
+				{ name = "copilot" }, -- copilot suggestions
 				{ name = "nvim_lsp" }, -- lsp suggestions
 				{ name = "luasnip" }, -- snippets
 				{ name = "buffer" }, -- text buffer
 				{ name = "path" }, -- fs paths
 				{ name = "vim-dadbod-completion" }, -- db completion
 			}),
+			formatting = {
+				fields = { "abbr", "kind", "menu" },
+				expandable_indicator = true,
+				format = function(entry, vim_item)
+					-- Lspkind setup for icons
+					vim_item = kind_formatter(entry, vim_item)
+
+					-- Tailwind colorizer setup
+					vim_item = require("tailwindcss-colorizer-cmp").formatter(entry, vim_item)
+
+					return vim_item
+				end,
+			},
 		})
 	end,
 }

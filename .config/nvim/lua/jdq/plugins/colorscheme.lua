@@ -1,11 +1,3 @@
-function ColorMyPencils(color)
-	color = color or "rose-pine"
-	vim.cmd.colorscheme(color)
-
-	vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
-	vim.cmd("hi LineNr guibg=NONE ctermbg=NONE")
-end
-
 return {
 	-- {
 	-- 	"ramojus/mellifluous.nvim",
@@ -20,7 +12,7 @@ return {
 	-- 		vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
 	-- 		vim.cmd("hi LineNr guibg=NONE ctermbg=NONE")
 	-- 	end,
-	-- }
+	-- },
 
 	{
 		"folke/tokyonight.nvim",
@@ -69,9 +61,9 @@ return {
 	-- 		Group.new("typescriptStatementKeyword", colors.violet)
 	-- 		Group.new("WinSeparator", nil, nil)
 	--
+	-- 		vim.cmd.colorscheme("gruvbuddy")
 	-- 		vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
 	-- 		vim.cmd("hi LineNr guibg=NONE ctermbg=NONE")
-	-- 		vim.cmd.colorscheme("gruvbuddy")
 	-- 	end,
 	-- },
 }
