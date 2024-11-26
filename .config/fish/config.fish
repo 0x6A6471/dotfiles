@@ -58,3 +58,12 @@ bind \cf fcd
 set -U fish_user_path $HOME/.local/bin $fish_user_paths
 set -U fish_user_paths /opt/nvim-linux64/bin $fish_user_paths
 
+
+
+# BEGIN opam configuration
+# This is useful if you're using opam as it adds:
+#   - the correct directories to the PATH
+#   - auto-completion for the opam binary
+# This section can be safely removed at any time if needed.
+test -r '/home/x6a6471/.opam/opam-init/init.fish' && source '/home/x6a6471/.opam/opam-init/init.fish' > /dev/null 2> /dev/null; or true
+# END opam configuration
