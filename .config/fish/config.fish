@@ -48,7 +48,7 @@ end
 
 # fzf
 function fcd
-    cd (begin; find ~/Developer/onramp -maxdepth 1 -type d; end | fzf)
+    cd (begin; find ~/Developer/onramp -maxdepth 1 -type d; find ~/Developer/ocaml -maxdepth 1 -type d; end | fzf)
     commandline -f repaint  # Force Fish to repaint the prompt after cd
 end
 
