@@ -15,29 +15,50 @@ return {
 	-- },
 
 	{
-		"folke/tokyonight.nvim",
-		lazy = false,
+		"catppuccin/nvim",
+		name = "catppuccin",
 		priority = 1000,
-		opts = {},
 		config = function()
-			require("tokyonight").setup({
-				style = "night",
-				transparent = true,
-				terminal_colors = false,
-				styles = {
-					keywords = { italic = false },
-					functions = { italic = false },
+			require("catppuccin").setup({
+				no_italic = true,
+				transparent_background = true,
+				color_overrides = {
+					mocha = {
+						base = "#000000",
+						mantle = "#000000",
+						crust = "#000000",
+					},
 				},
 			})
-			vim.cmd.colorscheme("tokyonight")
-			vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
-			vim.cmd("hi LineNr guibg=NONE ctermbg=NONE")
-			vim.cmd("hi DiagnosticVirtualTextError guibg=NONE ctermbg=NONE")
-			vim.cmd("hi DiagnosticVirtualTextWarn guibg=NONE ctermbg=NONE")
-			vim.cmd("hi DiagnosticVirtualTextInfo guibg=NONE ctermbg=NONE")
-			vim.cmd("hi DiagnosticVirtualTextHint guibg=NONE ctermbg=NONE")
+
+			vim.cmd.colorscheme("catppuccin")
 		end,
 	},
+
+	-- {
+	-- 	"folke/tokyonight.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	opts = {},
+	-- 	config = function()
+	-- 		require("tokyonight").setup({
+	-- 			style = "night",
+	-- 			transparent = true,
+	-- 			terminal_colors = false,
+	-- 			styles = {
+	-- 				keywords = { italic = false },
+	-- 				functions = { italic = false },
+	-- 			},
+	-- 		})
+	-- 		vim.cmd.colorscheme("tokyonight")
+	-- 		vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
+	-- 		vim.cmd("hi LineNr guibg=NONE ctermbg=NONE")
+	-- 		vim.cmd("hi DiagnosticVirtualTextError guibg=NONE ctermbg=NONE")
+	-- 		vim.cmd("hi DiagnosticVirtualTextWarn guibg=NONE ctermbg=NONE")
+	-- 		vim.cmd("hi DiagnosticVirtualTextInfo guibg=NONE ctermbg=NONE")
+	-- 		vim.cmd("hi DiagnosticVirtualTextHint guibg=NONE ctermbg=NONE")
+	-- 	end,
+	-- },
 
 	-- {
 	-- 	"tjdevries/colorbuddy.nvim",
