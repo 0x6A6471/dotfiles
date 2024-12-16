@@ -44,4 +44,4 @@ SETUVAR fish_pager_color_selected_description:\x1d
 SETUVAR fish_pager_color_selected_prefix:\x1d
 SETUVAR fish_should_add_space:0
 SETUVAR fish_user_path:/home/x6a6471/\x2elocal/bin\x1e/opt/nvim\x2dlinux64/bin
-SETUVAR fish_user_paths:/home/x6a6471/\x2edune/bin\x1e/opt/nvim\x2dlinux64/bin
+SETUVAR fish_user_paths:/home/x6a6471/\x2elocal/lib/zig\x1e/home/x6a6471/\x2elocal/lib/zig/zig\x1e/home/x6a6471/\x2edune/bin\x1e/opt/nvim\x2dlinux64/bin

@@ -55,6 +55,8 @@ end
 
 bind \cf fcd
 
+
+# set -U fish_user_paths /home/x6a6471/.local/lib/zig $fish_user_paths
 # set -U fish_user_path $HOME/.local/bin $fish_user_paths
 # set -U fish_user_paths /opt/nvim-linux64/bin $fish_user_paths
 
