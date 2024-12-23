@@ -11,5 +11,5 @@ confirm-close-surface = false
 
 gtk-tabs-location = bottom
 gtk-wide-tabs = false
-# gtk-titlebar = false
+gtk-titlebar = false
 adw-toolbar-style = raised-border

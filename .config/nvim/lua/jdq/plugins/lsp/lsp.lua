@@ -102,6 +102,7 @@ return {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			get_language_id = function(_, filetype)
+				vim.notify(filetype)
 				if filetype == "ocaml_mlx" then
 					return "ocaml"
 				end
