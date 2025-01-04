@@ -124,6 +124,11 @@ return {
 			on_attach = on_attach,
 		})
 
+		lspconfig["racket_langserver"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
 		lspconfig["rescriptls"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
