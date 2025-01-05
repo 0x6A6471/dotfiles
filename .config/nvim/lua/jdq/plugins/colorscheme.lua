@@ -57,6 +57,9 @@ return {
 			Group.new("@lsp.type.function.ocaml_mlx", colors.violet)
 			Group.new("WinSeparator", nil, nil)
 
+			-- racket
+			Group.new("racketsyntax", colors.violet)
+
 			vim.cmd.colorscheme("gruvbuddy")
 			vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
 			vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#000000" })
