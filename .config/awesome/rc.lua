@@ -508,16 +508,6 @@ awful.rules.rules = {
 			ontop = true,
 			titlebars_enabled = true,
 			size_hints_honor = false, -- Add this line to ignore size hints
-			buttons = gears.table.join(
-				awful.button({}, 1, function(c)
-					c:emit_signal("request::activate", "mouse_click", { raise = true })
-					awful.mouse.client.move(c)
-				end),
-				awful.button({}, 3, function(c)
-					c:emit_signal("request::activate", "mouse_click", { raise = true })
-					awful.mouse.client.resize(c)
-				end)
-			),
 		},
 	},
 	{
