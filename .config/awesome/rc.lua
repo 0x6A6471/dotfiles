@@ -112,7 +112,6 @@ myawesomemenu = {
 }
 
 local menu_awesome = { "awesome", myawesomemenu, beautiful.awesome_icon }
-local menu_terminal = { "open terminal", terminal }
 
 if has_fdo then
 	mymainmenu = freedesktop.menu.build({
@@ -510,6 +509,7 @@ awful.rules.rules = {
 				"Gpick",
 				"Kruler",
 				"MessageWin", -- kalarm.
+				"Nautilus", -- files
 				"Sxiv",
 				"Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
 				"Wpa_gui",
