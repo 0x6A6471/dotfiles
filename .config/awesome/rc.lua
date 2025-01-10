@@ -497,6 +497,30 @@ awful.rules.rules = {
 
 	-- Floating clients.
 	{
+		rule = {
+			class = "xdg-desktop-portal-gnome",
+			type = "dialog",
+		},
+		properties = {
+			floating = true,
+			placement = awful.placement.centered,
+			raise = true,
+			ontop = true,
+			titlebars_enabled = true,
+			size_hints_honor = false, -- Add this line to ignore size hints
+			buttons = gears.table.join(
+				awful.button({}, 1, function(c)
+					c:emit_signal("request::activate", "mouse_click", { raise = true })
+					awful.mouse.client.move(c)
+				end),
+				awful.button({}, 3, function(c)
+					c:emit_signal("request::activate", "mouse_click", { raise = true })
+					awful.mouse.client.resize(c)
+				end)
+			),
+		},
+	},
+	{
 		rule_any = {
 			instance = {
 				"DTA", -- Firefox addon DownThemAll.
@@ -525,6 +549,7 @@ awful.rules.rules = {
 			role = {
 				"AlarmWindow", -- Thunderbird's calendar.
 				"ConfigManager", -- Thunderbird's about:config.
+				"dialog",
 				"pop-up", -- e.g. Google Chrome's (detached) Developer Tools.
 			},
 		},
