@@ -14,3 +14,5 @@ gtk-wide-tabs = false
 gtk-titlebar = false
 adw-toolbar-style = raised-border
 
+# keybinds
+keybind = ctrl+comma=unbind 
