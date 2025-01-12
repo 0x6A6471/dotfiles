@@ -8,9 +8,9 @@ return {
 			formatters_by_ft = {
 				css = { "biome", "prettier" },
 				html = { "biome", "prettier" },
-				json = { "biome", "prettier" },
 				javascript = { "biome", "prettier" },
 				javascriptreact = { "biome", "prettier" },
+				json = { "biome", "prettier" },
 				markdown = { "biome", "prettier" },
 				typescript = { "biome", "prettier" },
 				typescriptreact = { "biome", "prettier" },
