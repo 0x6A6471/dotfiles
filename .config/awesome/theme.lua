@@ -13,8 +13,8 @@ local theme = {}
 
 theme.font = "Monospace 8"
 
-theme.bg_normal = "#222222"
-theme.bg_focus = "#535d6c"
+theme.bg_normal = "#000000"
+theme.bg_focus = "#222222"
 theme.bg_urgent = "#ff0000"
 theme.bg_minimize = "#444444"
 theme.bg_systray = theme.bg_normal
@@ -29,6 +29,8 @@ theme.border_width = dpi(1)
 theme.border_normal = "#000000"
 theme.border_focus = "#535d6c"
 theme.border_marked = "#91231c"
+theme.taglist_bg_focus = "#F7931A"
+theme.taglist_fg_focus = "#000000" -- Black text on orange background
 
 -- There are other variable sets
 -- overriding the default one when
@@ -45,7 +47,7 @@ theme.border_marked = "#91231c"
 
 -- Generate taglist squares:
 local taglist_square_size = dpi(4)
-theme.taglist_squares_sel = theme_assets.taglist_squares_sel(taglist_square_size, theme.fg_normal)
+theme.taglist_squares_sel = theme_assets.taglist_squares_sel(taglist_square_size, theme.taglist_bg_focus)
 theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(taglist_square_size, theme.fg_normal)
 
 -- Variables set for theming notifications:
