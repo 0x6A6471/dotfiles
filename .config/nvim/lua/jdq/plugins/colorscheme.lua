@@ -1,19 +1,4 @@
 return {
-	-- {
-	-- 	"ramojus/mellifluous.nvim",
-	-- 	name = "mellifluous",
-	-- 	config = function()
-	-- 		require("mellifluous").setup({
-	-- 			transparent_background = {
-	-- 				enabled = true,
-	-- 			},
-	-- 		})
-	-- 		vim.cmd("colorscheme mellifluous")
-	-- 		vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
-	-- 		vim.cmd("hi LineNr guibg=NONE ctermbg=NONE")
-	-- 	end,
-	-- },
-
 	{
 		"slugbyte/lackluster.nvim",
 		name = "lackluster",
@@ -53,27 +38,6 @@ return {
 			vim.cmd("colorscheme lackluster")
 		end,
 	},
-
-	-- {
-	-- 	"catppuccin/nvim",
-	-- 	name = "catppuccin",
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		require("catppuccin").setup({
-	-- 			no_italic = true,
-	-- 			transparent_background = true,
-	-- 			color_overrides = {
-	-- 				mocha = {
-	-- 					base = "#000000",
-	-- 					mantle = "#000000",
-	-- 					crust = "#000000",
-	-- 				},
-	-- 			},
-	-- 		})
-	--
-	-- 		vim.cmd.colorscheme("catppuccin")
-	-- 	end,
-	-- },
 
 	-- {
 	-- 	"tjdevries/colorbuddy.nvim",
