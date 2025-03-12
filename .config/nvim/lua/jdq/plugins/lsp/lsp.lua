@@ -4,6 +4,7 @@ return {
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
 		{ "j-hui/fidget.nvim", tag = "legacy" },
+		"stevearc/conform.nvim",
 	},
 	config = function()
 		local lspconfig = require("lspconfig")
@@ -77,6 +78,21 @@ return {
 			},
 		})
 
+		-- lspconfig["ocamllsp"].setup({
+		-- 	manual_install = true,
+		-- 	cmd = { "dune", "tools", "exec", "ocamllsp" },
+		-- 	-- cmd = { "dune", "exec", "ocamllsp" },
+		-- 	settings = {
+		-- 		codelens = { enable = true },
+		-- 		inlayHints = { enable = true },
+		-- 		syntaxDocumentation = { enable = true },
+		-- 	},
+		--
+		-- 	server_capabilities = { semanticTokensProvider = false },
+		--
+		-- 	-- TODO: Check if i still need the filtypes stuff i had before
+		-- })
+
 		lspconfig["ocamllsp"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
@@ -116,14 +132,6 @@ return {
 		lspconfig["tailwindcss"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
-			filetypes_include = { "heex" },
-			init_options = {
-				userLanguages = {
-					elixir = "html-eex",
-					eelixir = "html-eex",
-					heex = "html-eex",
-				},
-			},
 		})
 
 		lspconfig["ts_ls"].setup({

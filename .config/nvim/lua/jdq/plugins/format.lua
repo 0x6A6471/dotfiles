@@ -5,6 +5,17 @@ return {
 		local conform = require("conform")
 
 		conform.setup({
+			formatters = {
+				["ml-format"] = {
+					command = "./_build/_private/default/.dev-tool/ocamlformat/ocamlformat/target/bin/ocamlformat",
+					args = {
+						"--enable-outside-detected-project",
+						"--name",
+						"$FILENAME",
+						"-",
+					},
+				},
+			},
 			formatters_by_ft = {
 				css = { "biome", "prettier" },
 				html = { "biome", "prettier" },
@@ -17,7 +28,8 @@ return {
 
 				lua = { "stylua" },
 
-				ocaml = { "ocamlformat" },
+				-- ocaml = { "ocamlformat" },
+				ocaml = { "ml-format" },
 				ocaml_mlx = { "ocamlformat_mlx" },
 
 				python = { "isort", "black" },
