@@ -550,10 +550,6 @@ awful.rules.rules = {
 
 	-- Add titlebars to normal clients and dialogs
 	{ rule_any = { type = { "normal", "dialog" } }, properties = { titlebars_enabled = false } },
-
-	-- Set Firefox to always map on the tag named "2" on screen 1.
-	-- { rule = { class = "Firefox" },
-	--   properties = { screen = 1, tag = "2" } },
 }
 -- }}}
 
@@ -562,7 +558,9 @@ awful.rules.rules = {
 client.connect_signal("manage", function(c)
 	-- Set the windows at the slave,
 	-- i.e. put it at the end of others instead of setting it master.
-	-- if not awesome.startup then awful.client.setslave(c) end
+	if not awesome.startup then
+		awful.client.setslave(c)
+	end
 
 	if awesome.startup and not c.size_hints.user_position and not c.size_hints.program_position then
 		-- Prevent clients from being unreachable after screen count changes.
