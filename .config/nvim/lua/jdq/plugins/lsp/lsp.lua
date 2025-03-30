@@ -2,13 +2,13 @@ return {
 	"neovim/nvim-lspconfig",
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
-		"hrsh7th/cmp-nvim-lsp",
+		"saghen/blink.cmp",
 		{ "j-hui/fidget.nvim", tag = "legacy" },
 		"stevearc/conform.nvim",
 	},
 	config = function()
 		local lspconfig = require("lspconfig")
-		local cmp_nvim_lsp = require("cmp_nvim_lsp")
+		local capabilities = require("blink.cmp").get_lsp_capabilities().capabilities
 
 		vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
 			pattern = "*.mlx",
@@ -45,10 +45,6 @@ return {
 				vim.lsp.buf.rename()
 			end, opts)
 		end
-
-		local capabilities = cmp_nvim_lsp.default_capabilities()
-
-		lspconfig.lexical.setup({})
 
 		lspconfig["cssls"].setup({
 			capabilities = capabilities,
