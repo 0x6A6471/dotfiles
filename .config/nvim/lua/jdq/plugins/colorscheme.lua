@@ -17,10 +17,6 @@ return {
 						overwrite = false,
 						fg = color.yellow,
 					},
-					-- ["Constant"] = {
-					-- 	overwrite = false,
-					-- 	fg = color.orange,
-					-- },
 					["DiagnosticWarn"] = {
 						overwrite = false,
 						fg = "#ffaa88",
