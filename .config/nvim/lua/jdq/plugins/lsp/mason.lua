@@ -18,6 +18,7 @@ return {
 		mason_lspconfig.setup({
 			ensure_installed = {
 				"cssls",
+				"eslint",
 				"html",
 				"lua_ls",
 				"rescriptls",
@@ -31,7 +32,6 @@ return {
 
 		mason_tool_installer.setup({
 			ensure_installed = {
-				"eslint",
 				"eslint_d",
 				"stylua",
 			},
