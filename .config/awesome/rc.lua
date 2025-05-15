@@ -138,8 +138,57 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
--- Create a textclock widget
-mytextclock = wibox.widget.textclock("%I:%M %p")
+local systemStatus = wibox.widget({
+	font = "Monospace 9",
+	widget = wibox.widget.textbox,
+})
+
+gears.timer({
+	timeout = 2,
+	call_now = true,
+	autostart = true,
+	callback = function()
+		-- Get CPU usage
+		awful.spawn.easy_async_with_shell(
+			"grep '^cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {print usage}'",
+			function(cpu_stdout)
+				local cpu_usage = tonumber(cpu_stdout) or 0
+				cpu_usage = string.format("%.1f", cpu_usage)
+
+				-- Get memory usage
+				awful.spawn.easy_async_with_shell("free -h | awk '/^Mem/ {print $3\"/\"$2}'", function(mem_stdout)
+					local mem_usage = string.gsub(mem_stdout, "%s+", "")
+					mem_usage = string.gsub(mem_usage, "\n", "")
+
+					-- Get volume level
+					awful.spawn.easy_async_with_shell(
+						"amixer sget Master | grep 'Right:' | awk -F'[][]' '{print $2}'",
+						function(vol_stdout)
+							local vol_level = string.gsub(vol_stdout, "%s+", "")
+							vol_level = string.gsub(vol_level, "\n", "")
+
+							-- Get current time (just hours and minutes, no date or seconds)
+							awful.spawn.easy_async_with_shell("date '+%H:%M'", function(time_stdout)
+								local current_time = string.gsub(time_stdout, "%s+$", "")
+
+								-- Format the status text
+								local status_text = string.format(
+									"cpu %s%% :: mem %s :: vol %s :: time %s",
+									cpu_usage,
+									mem_usage,
+									vol_level,
+									current_time
+								)
+
+								systemStatus:set_text(status_text)
+							end)
+						end
+					)
+				end)
+			end
+		)
+	end,
+})
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -235,12 +284,12 @@ awful.screen.connect_for_each_screen(function(s)
 	-- Create a tasklist widget
 	s.mytasklist = awful.widget.tasklist({
 		screen = s,
-		filter = awful.widget.tasklist.filter.currenttags,
+		-- filter = awful.widget.tasklist.filter.currenttags,
 		buttons = tasklist_buttons,
 	})
 
 	-- Create the wibox
-	s.mywibox = awful.wibar({ position = "top", screen = s })
+	s.mywibox = awful.wibar({ position = "bottom", screen = s })
 
 	-- Add widgets to the wibox
 	s.mywibox:setup({
@@ -257,9 +306,9 @@ awful.screen.connect_for_each_screen(function(s)
 			-- mykeyboardlayout,
 			-- wibox.widget.systray(),
 			wibox.widget.textbox(" "),
-			mytextclock,
+			systemStatus,
 			wibox.widget.textbox(" "),
-			s.mylayoutbox,
+			-- s.mylayoutbox,
 		},
 	})
 end)
