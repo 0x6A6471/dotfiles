@@ -168,9 +168,8 @@ gears.timer({
 							vol_level = string.gsub(vol_level, "\n", "")
 
 							-- Get current time (just hours and minutes, no date or seconds)
-							awful.spawn.easy_async_with_shell("date '+%H:%M'", function(time_stdout)
+							awful.spawn.easy_async_with_shell("date '+%I:%M %p'", function(time_stdout)
 								local current_time = string.gsub(time_stdout, "%s+$", "")
-
 								-- Format the status text
 								local status_text = string.format(
 									"cpu %s%% :: mem %s :: vol %s :: time %s",
