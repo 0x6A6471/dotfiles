@@ -162,7 +162,7 @@ gears.timer({
 
 					-- Get volume level
 					awful.spawn.easy_async_with_shell(
-						"amixer sget Master | grep 'Right:' | awk -F'[][]' '{print $2}'",
+						"amixer sget Master | grep -o '[0-9]*%' | head -1",
 						function(vol_stdout)
 							local vol_level = string.gsub(vol_stdout, "%s+", "")
 							vol_level = string.gsub(vol_level, "\n", "")
