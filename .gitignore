@@ -9,13 +9,10 @@
 
 # allow .config directory
 !/.config
-
 # ignore everything in .config by default
 /.config/*
-
-# but not these dirs
-!/.config/fish
+# but not these dirs/files
+!/.config/fish/config.fish
 !/.config/ghostty
 !/.config/nvim
 !/.config/awesome
-

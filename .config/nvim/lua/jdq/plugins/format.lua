@@ -17,14 +17,14 @@ return {
 				},
 			},
 			formatters_by_ft = {
-				css = { "biome", "prettier" },
-				html = { "biome", "prettier" },
-				javascript = { "biome", "prettier" },
-				javascriptreact = { "biome", "prettier" },
-				json = { "biome", "prettier" },
-				markdown = { "biome", "prettier" },
-				typescript = { "biome", "prettier" },
-				typescriptreact = { "biome", "prettier" },
+				css = { "prettier" },
+				html = { "prettier" },
+				javascript = { "prettier" },
+				javascriptreact = { "prettier" },
+				json = { "prettier" },
+				markdown = { "prettier" },
+				typescript = { "prettier" },
+				typescriptreact = { "prettier" },
 
 				lua = { "stylua" },
 
