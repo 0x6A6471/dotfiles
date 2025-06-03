@@ -24,7 +24,7 @@ return {
 				"lua_ls",
 				"rescriptls",
 				"tailwindcss",
-				"ts_ls",
+				-- "ts_ls",
 			},
 			highlight = true,
 			-- auto-install with lspconfig
