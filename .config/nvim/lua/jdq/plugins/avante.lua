@@ -8,10 +8,14 @@ return {
 			auto_suggestions = false,
 		},
 		provider = "claude",
-		claude = {
-			model = "claude-sonnet-4-20250514", -- Updated model name
-			temperature = 0,
-			max_tokens = 8192,
+		providers = {
+			claude = {
+				model = "claude-sonnet-4-20250514", -- Updated model name
+				extra_request_body = {
+					temperature = 0.75,
+					max_tokens = 4096,
+				},
+			},
 		},
 	},
 	build = vim.fn.has("win32") == 1 and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
