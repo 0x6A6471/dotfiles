@@ -6,6 +6,9 @@ return {
 			local lackluster = require("lackluster")
 			local color = lackluster.color
 			lackluster.setup({
+				tweak_color = {
+					lack = "#555555",
+				},
 				tweak_background = {
 					normal = "none", -- hexcode
 					telescope = color.gray1, -- telescope
@@ -15,20 +18,42 @@ return {
 				tweak_highlight = {
 					["@function"] = {
 						overwrite = false,
-						fg = color.yellow,
+						fg = "#FFBE89",
+					},
+					["tsxTagName"] = {
+						overwrite = false,
+						fg = "#FFBE89",
 					},
 					["DiagnosticWarn"] = {
 						overwrite = false,
-						fg = "#ffaa88",
+						fg = "#FFF2AF",
 					},
 					["DiagnosticVirtualTextWarn"] = {
 						overwrite = false,
-						fg = "#ffaa88",
+						fg = "#FFF2AF",
+					},
+					["DiagnosticError"] = {
+						overwrite = false,
+						fg = "#F57A7A",
+					},
+					["DiagnosticVirtualTextError"] = {
+						overwrite = false,
+						fg = "#F57A7A",
+					},
+					["DiagnosticUnderlineError"] = {
+						overwrite = true, -- changed to true
+						sp = "#F57a7a", -- sp = special/underline color
+						undercurl = true, -- or set to true if you want curly underline
+						underline = true,
+					},
+					["DiagnosticSignError"] = {
+						overwrite = true,
+						fg = "#F57a7a",
 					},
 				},
 				tweak_syntax = {
-					type = "#7788aa",
-					string = color.green,
+					type = "#555555",
+					string = "#7EAB8E",
 				},
 			})
 			vim.cmd("colorscheme lackluster")
