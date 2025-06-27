@@ -421,7 +421,11 @@ globalkeys = gears.table.join(
 
 	awful.key({ modkey, "Shift" }, "s", function()
 		awful.spawn("flameshot gui")
-	end, { description = "Launch Flameshot screenshot", group = "screenshots" })
+	end, { description = "Launch Flameshot screenshot", group = "screenshots" }),
+
+	awful.key({ modkey }, "b", function()
+		awful.spawn("brave-browser")
+	end, { description = "open browser", group = "launcher" })
 )
 
 clientkeys = gears.table.join(

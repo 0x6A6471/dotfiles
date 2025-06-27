@@ -61,6 +61,9 @@ return {
 			-- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
 			-- Adjusts spacing to ensure icons are aligned
 			nerd_font_variant = "mono",
+			kind_icons = {
+				Supermaven = "", -- or use a nerd font icon like ""
+			},
 		},
 		-- (Default) Only show the documentation popup when manually triggered
 		completion = {
@@ -81,7 +84,7 @@ return {
 		-- elsewhere in your config, without redefining it, due to `opts_extend`
 		sources = {
 			-- Keep avante sources separate for now - they'll be added dynamically when avante loads
-			default = { "lsp", "path", "snippets", "buffer", "supermaven" },
+			default = { "supermaven", "lsp", "path", "snippets", "buffer" },
 			providers = {
 				supermaven = {
 					name = "supermaven",
@@ -106,4 +109,11 @@ return {
 		fuzzy = { implementation = "prefer_rust_with_warning" },
 	},
 	opts_extend = { "sources.default" },
+	config = function(_, opts)
+		require("blink.cmp").setup(opts)
+
+		vim.api.nvim_set_hl(0, "BlinkCmpKindSupermaven", {
+			fg = "#6cc644",
+		})
+	end,
 }
