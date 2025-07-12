@@ -75,3 +75,6 @@ set --export PATH $BUN_INSTALL/bin $PATH
 
 # dune
 source $HOME/.local/share/dune/env/env.fish
+
+# opencode
+fish_add_path /home/x6a6471/.opencode/bin
