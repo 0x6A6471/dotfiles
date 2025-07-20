@@ -34,7 +34,7 @@ if status is-interactive
 
   # fzf
   function fcd
-      cd (begin; find ~/Developer -maxdepth 2 -type d;  end | fzf)
+      cd (begin; find ~/git -maxdepth 2 -type d;  end | fzf)
       commandline -f repaint  # Force Fish to repaint the prompt after cd
   end
 
