@@ -4,8 +4,6 @@
 # but not these files
 !.gitignore
 !README.md
-.Xprofile
-.Xresources
 
 # allow .config directory
 !/.config

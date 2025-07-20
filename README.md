@@ -1,3 +1,3 @@
 # dotfiles
 
-Linux config files
+Arch, btw
