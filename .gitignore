@@ -7,10 +7,18 @@
 
 # allow .config directory
 !/.config
+
 # ignore everything in .config by default
 /.config/*
-# but not these dirs/files
+
+# allow fish
+!/.config/fish/
 !/.config/fish/config.fish
+# ignore fish_variables
+/.config/fish/fish_variables 
+
+# allow ghostty
 !/.config/ghostty
+
+# allow neovim
 !/.config/nvim
-!/.config/awesome

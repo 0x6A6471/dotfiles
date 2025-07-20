@@ -1,0 +1,31 @@
+# Lackluster - A monochrome terminal theme
+
+# Main colors
+background = #000000
+foreground = #AAAAAA
+
+# Selection/cursor
+cursor-color = #AAAAAA
+cursor-text = #000000
+selection-background = #444444
+selection-foreground = #CCCCCC
+
+# Normal colors (0-7)
+palette = 0=#000000
+palette = 1=#D70000
+palette = 2=#789978
+palette = 3=#FFAA88
+palette = 4=#7788AA
+palette = 5=#708890
+palette = 6=#DEEEED
+palette = 7=#AAAAAA
+
+# Bright colors (8-15) - with your custom tweaks
+palette = 8=#080808
+palette = 9=#191919
+palette = 10=#2A2A2A
+palette = 11=#444444
+palette = 12=#555555
+palette = 13=#7A7A7A
+palette = 14=#CCCCCC
+palette = 15=#DDDDDD
