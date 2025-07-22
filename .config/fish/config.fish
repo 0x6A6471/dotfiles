@@ -18,11 +18,18 @@ if status is-interactive
       set -U fish_should_add_space 0
   end
 
-
-
   # alias
   alias vim="nvim"
   alias vt='vim "+terminal"'
+
+  # git
+  alias gs="git status"
+  alias ga="git add"
+  alias gb="git branch"
+  alias gbd="git branch -D"
+  alias gc="git commit"
+  alias gp="git push"
+  alias gpp="git pull"
 
   # lsd
   alias ls='lsd --icon never'
@@ -31,13 +38,11 @@ if status is-interactive
   alias lla='ls -la'
   alias lt='ls --tree'
 
-
   # fzf
   function fcd
       cd (begin; find ~/git -maxdepth 2 -type d;  end | fzf)
       commandline -f repaint  # Force Fish to repaint the prompt after cd
   end
-
 
   bind \cf fcd
 end
