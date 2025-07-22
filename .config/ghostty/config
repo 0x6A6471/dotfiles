@@ -57,6 +57,7 @@ gtk-wide-tabs = false
 gtk-titlebar = false
 adw-toolbar-style = raised-border
 window-decoration = auto
+window-theme = ghostty
 
 # keybinds
 keybind = ctrl+comma=unbind
