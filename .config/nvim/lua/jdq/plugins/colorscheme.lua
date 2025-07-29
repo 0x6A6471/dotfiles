@@ -19,6 +19,8 @@ return {
       vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
       vim.cmd("hi LineNr guibg=NONE ctermbg=NONE")
 
+      vim.cmd("hi NormalFloat guibg=#000000")
+
       -- Add diagnostic underlines
       vim.cmd("hi DiagnosticUnderlineError guisp=#ff8080 gui=undercurl")
       vim.cmd("hi DiagnosticUnderlineWarn guisp=#ffc799 gui=undercurl")
