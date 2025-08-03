@@ -22,3 +22,6 @@
 
 # allow neovim
 !/.config/nvim
+
+# allow hypr
+!/.config/hypr
