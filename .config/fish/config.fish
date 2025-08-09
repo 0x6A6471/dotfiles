@@ -47,3 +47,7 @@ if status is-interactive
   bind \cf fcd
 end
 set -gx SHELL /usr/bin/fish
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
