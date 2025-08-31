@@ -1,0 +1,27 @@
+# ignore everything by default
+/*
+
+# but not these files
+!.gitignore
+!README.md
+
+# allow .config directory
+!/.config
+
+# ignore everything in .config by default
+/.config/*
+
+# allow fish
+!/.config/fish/
+!/.config/fish/config.fish
+# ignore fish_variables
+/.config/fish/fish_variables 
+
+# allow ghostty
+!/.config/ghostty
+
+# allow neovim
+!/.config/nvim
+
+# allow hypr
+!/.config/hypr
