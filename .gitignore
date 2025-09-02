@@ -25,3 +25,6 @@
 
 # allow hypr
 !/.config/hypr
+
+# allow sway
+!/.config/swayosd
