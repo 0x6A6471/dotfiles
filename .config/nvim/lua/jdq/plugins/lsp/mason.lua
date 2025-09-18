@@ -17,6 +17,7 @@ return {
 
 		mason_lspconfig.setup({
 			ensure_installed = {
+				"arduino_language_server",
 				"clangd",
 				"cssls",
 				"eslint",
