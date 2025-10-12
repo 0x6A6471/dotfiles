@@ -28,3 +28,6 @@
 
 # allow hypr
 !/.config/fontconfig
+
+# allow waybar
+!/.config/waybar
