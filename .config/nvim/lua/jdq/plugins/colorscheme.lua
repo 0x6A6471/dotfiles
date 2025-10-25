@@ -1,32 +1,32 @@
 return {
 	-- {
-	--   "datsfilipe/vesper.nvim",
-	--   name = "vesper",
-	--   config = function()
-	--     require("vesper").setup({
-	--       transparent = false, -- Boolean: Sets the background to transparent
-	--       italics = {
-	--         comments = true, -- Boolean: Italicizes comments
-	--         keywords = false, -- Boolean: Italicizes keywords
-	--         functions = false, -- Boolean: Italicizes functions
-	--         strings = false, -- Boolean: Italicizes strings
-	--         variables = false, -- Boolean: Italicizes variables
-	--       },
-	--       overrides = {}, -- A dictionary of group names, can be a function returning a dictionary or a table.
-	--       palette_overrides = {},
-	--     })
-	--     vim.cmd("colorscheme vesper")
-	--     vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
-	--     vim.cmd("hi LineNr guibg=NONE ctermbg=NONE")
+	-- 	"datsfilipe/vesper.nvim",
+	-- 	name = "vesper",
+	-- 	config = function()
+	-- 		require("vesper").setup({
+	-- 			transparent = false, -- Boolean: Sets the background to transparent
+	-- 			italics = {
+	-- 				comments = true, -- Boolean: Italicizes comments
+	-- 				keywords = false, -- Boolean: Italicizes keywords
+	-- 				functions = false, -- Boolean: Italicizes functions
+	-- 				strings = false, -- Boolean: Italicizes strings
+	-- 				variables = false, -- Boolean: Italicizes variables
+	-- 			},
+	-- 			overrides = {}, -- A dictionary of group names, can be a function returning a dictionary or a table.
+	-- 			palette_overrides = {},
+	-- 		})
+	-- 		vim.cmd("colorscheme vesper")
+	-- 		vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
+	-- 		vim.cmd("hi LineNr guibg=NONE ctermbg=NONE")
 	--
-	--     vim.cmd("hi NormalFloat guibg=#000000")
+	-- 		vim.cmd("hi NormalFloat guibg=#000000")
 	--
-	--     -- Add diagnostic underlines
-	--     vim.cmd("hi DiagnosticUnderlineError guisp=#ff8080 gui=undercurl")
-	--     vim.cmd("hi DiagnosticUnderlineWarn guisp=#ffc799 gui=undercurl")
-	--     vim.cmd("hi DiagnosticUnderlineInfo guisp=#80aaff gui=undercurl")
-	--     vim.cmd("hi DiagnosticUnderlineHint guisp=#a0a0a0 gui=undercurl")
-	--   end,
+	-- 		-- Add diagnostic underlines
+	-- 		vim.cmd("hi DiagnosticUnderlineError guisp=#ff8080 gui=undercurl")
+	-- 		vim.cmd("hi DiagnosticUnderlineWarn guisp=#ffc799 gui=undercurl")
+	-- 		vim.cmd("hi DiagnosticUnderlineInfo guisp=#80aaff gui=undercurl")
+	-- 		vim.cmd("hi DiagnosticUnderlineHint guisp=#a0a0a0 gui=undercurl")
+	-- 	end,
 	-- },
 	{
 		"bjarneo/ash.nvim",
@@ -40,11 +40,18 @@ return {
 			vim.cmd("hi DiagnosticFloatingInfo guifg=#80aaff")
 			vim.cmd("hi DiagnosticFloatingHint guifg=#a0a0a0")
 
-			-- Add diagnostic underlines
+			-- add diagnostic underlines
 			vim.cmd("hi DiagnosticUnderlineError guisp=#ff8080 gui=undercurl")
 			vim.cmd("hi DiagnosticUnderlineWarn guisp=#ffc799 gui=undercurl")
 			vim.cmd("hi DiagnosticUnderlineInfo guisp=#80aaff gui=undercurl")
 			vim.cmd("hi DiagnosticUnderlineHint guisp=#a0a0a0 gui=undercurl")
+
+			-- modifications
+			vim.cmd("hi @string guifg=#7EAB8E")
+			vim.cmd("hi @lsp.type.function guifg=#FFBE89")
+			vim.cmd("hi @lsp.typemod.function.declaration guifg=#FFBE89")
+			vim.cmd("hi @function guifg=#FFBE89")
+			vim.cmd("hi @function.call guifg=#FFBE89")
 		end,
 	},
 	-- {
