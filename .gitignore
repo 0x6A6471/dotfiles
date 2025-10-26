@@ -29,5 +29,8 @@
 # allow hypr
 !/.config/fontconfig
 
+# allow walker
+!/.config/walker
+
 # allow waybar
 !/.config/waybar
