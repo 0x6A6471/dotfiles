@@ -19,12 +19,12 @@ return {
 			formatters_by_ft = {
 				css = { "prettier" },
 				html = { "prettier" },
-				javascript = { "prettier" },
-				javascriptreact = { "prettier" },
-				json = { "prettier" },
+				javascript = { "biome", "prettier", stop_after_first = true },
+				javascriptreact = { "biome", "prettier", stop_after_first = true },
+				json = { "biome", "prettier", stop_after_first = true },
 				markdown = { "prettier" },
-				typescript = { "prettier" },
-				typescriptreact = { "prettier" },
+				typescript = { "biome", "prettier", stop_after_first = true },
+				typescriptreact = { "biome", "prettier", stop_after_first = true },
 
 				lua = { "stylua" },
 

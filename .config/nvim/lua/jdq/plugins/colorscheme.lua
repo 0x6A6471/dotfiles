@@ -52,6 +52,24 @@ return {
 			vim.cmd("hi @lsp.typemod.function.declaration guifg=#FFBE89")
 			vim.cmd("hi @function guifg=#FFBE89")
 			vim.cmd("hi @function.call guifg=#FFBE89")
+
+			-- Terminal colors (16 ANSI colors)
+			vim.g.terminal_color_0 = "#000000" -- black
+			vim.g.terminal_color_1 = "#ff8080" -- red (git deletions)
+			vim.g.terminal_color_2 = "#7EAB8E" -- green (git additions, strings)
+			vim.g.terminal_color_3 = "#FFBE89" -- yellow/orange (functions)
+			vim.g.terminal_color_4 = "#80aaff" -- blue (info)
+			vim.g.terminal_color_5 = "#c792ea" -- magenta/purple
+			vim.g.terminal_color_6 = "#89ddff" -- cyan
+			vim.g.terminal_color_7 = "#cccccc" -- white/gray
+			vim.g.terminal_color_8 = "#555555" -- bright black (gray)
+			vim.g.terminal_color_9 = "#ff8080" -- bright red
+			vim.g.terminal_color_10 = "#7EAB8E" -- bright green
+			vim.g.terminal_color_11 = "#ffc799" -- bright yellow (warnings)
+			vim.g.terminal_color_12 = "#80aaff" -- bright blue
+			vim.g.terminal_color_13 = "#c792ea" -- bright magenta
+			vim.g.terminal_color_14 = "#89ddff" -- bright cyan
+			vim.g.terminal_color_15 = "#ffffff" -- bright white
 		end,
 	},
 	-- {

@@ -60,5 +60,7 @@ window-decoration = auto
 window-theme = ghostty
 
 # keybinds
-keybind = ctrl+comma=unbind
+# keybind = ctrl+comma=unbind
 
+# window-inherit-working-directory = false
+# working-directory = home
