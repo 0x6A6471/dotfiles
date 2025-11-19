@@ -45,6 +45,13 @@ return {
 			end, opts)
 		end
 
+		vim.lsp.config("biome", {
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
+		vim.lsp.enable("biome")
+
 		vim.lsp.config("clangd", {
 			capabilities = capabilities,
 			on_attach = on_attach,

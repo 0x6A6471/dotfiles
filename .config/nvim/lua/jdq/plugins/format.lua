@@ -3,7 +3,28 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		local conform = require("conform")
+		local function file_exists(filename)
+			local f = io.open(filename, "r")
+			if f ~= nil then
+				io.close(f)
+				return true
+			else
+				return false
+			end
+		end
+		local function get_project_root()
+			return vim.fn.getcwd()
+		end
+		local function get_web_formatters()
+			local root = get_project_root()
 
+			-- check for biome config
+			if file_exists(root .. "/biome.json") or file_exists(root .. "/biome.jsonc") then
+				return { "biome-check" }
+			end
+
+			return { "prettier" }
+		end
 		conform.setup({
 			formatters = {
 				["ml-format"] = {
@@ -17,21 +38,17 @@ return {
 				},
 			},
 			formatters_by_ft = {
-				css = { "prettier" },
-				html = { "prettier" },
-				javascript = { "biome", "prettier", stop_after_first = true },
-				javascriptreact = { "biome", "prettier", stop_after_first = true },
-				json = { "biome", "prettier", stop_after_first = true },
-				markdown = { "prettier" },
-				typescript = { "biome", "prettier", stop_after_first = true },
-				typescriptreact = { "biome", "prettier", stop_after_first = true },
-
+				css = get_web_formatters(),
+				html = get_web_formatters(),
+				javascript = get_web_formatters(),
+				javascriptreact = get_web_formatters(),
+				json = get_web_formatters(),
+				markdown = get_web_formatters(),
+				typescript = get_web_formatters(),
+				typescriptreact = get_web_formatters(),
 				lua = { "stylua" },
-
-				-- ocaml = { "ocamlformat" },
 				ocaml = { "ml-format" },
 				ocaml_mlx = { "ocamlformat_mlx" },
-
 				python = { "isort", "black" },
 			},
 			format_on_save = {
