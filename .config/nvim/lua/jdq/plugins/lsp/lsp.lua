@@ -48,6 +48,7 @@ return {
 		vim.lsp.config("biome", {
 			capabilities = capabilities,
 			on_attach = on_attach,
+			offset_encoding = "utf-16",
 		})
 
 		vim.lsp.enable("biome")
@@ -119,9 +120,21 @@ return {
 			on_attach = on_attach,
 		})
 
-		vim.lsp.config("ts_ls", {
+		-- vim.lsp.config("ts_ls", {
+		-- 	capabilities = capabilities,
+		-- 	on_attach = on_attach,
+		-- })
+		vim.lsp.config("vtsls", {
 			capabilities = capabilities,
 			on_attach = on_attach,
+			settings = {
+				vtsls = {
+					autoUseWorkspaceTsdk = true,
+					tsserver = {
+						pluginPaths = { "./node_modules" },
+					},
+				},
+			},
 		})
 
 		vim.lsp.enable("clangd")
@@ -131,6 +144,7 @@ return {
 		vim.lsp.enable("lua_ls")
 		vim.lsp.enable("ocamllsp")
 		vim.lsp.enable("tailwindcss")
-		vim.lsp.enable("ts_ls")
+		-- vim.lsp.enable("ts_ls")
+		vim.lsp.enable("vtsls")
 	end,
 }

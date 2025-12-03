@@ -51,3 +51,6 @@ set -gx SHELL /usr/bin/fish
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
+
+# opencode
+fish_add_path /home/x6a6471/.opencode/bin
