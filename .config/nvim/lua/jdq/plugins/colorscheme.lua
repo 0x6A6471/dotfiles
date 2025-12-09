@@ -12,14 +12,16 @@ return {
 	-- 				strings = false, -- Boolean: Italicizes strings
 	-- 				variables = false, -- Boolean: Italicizes variables
 	-- 			},
-	-- 			overrides = {}, -- A dictionary of group names, can be a function returning a dictionary or a table.
+	-- 			overrides = { -- A dictionary of group names, can be a function returning a dictionary or a table.
+	-- 				Number = { bold = false },
+	-- 			},
 	-- 			palette_overrides = {},
 	-- 		})
 	-- 		vim.cmd("colorscheme vesper")
 	-- 		vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
 	-- 		vim.cmd("hi LineNr guibg=NONE ctermbg=NONE")
-	--
 	-- 		vim.cmd("hi NormalFloat guibg=#000000")
+	-- 		vim.api.nvim_set_hl(0, "Whitespace", { fg = "#404040" })
 	--
 	-- 		-- Add diagnostic underlines
 	-- 		vim.cmd("hi DiagnosticUnderlineError guisp=#ff8080 gui=undercurl")
@@ -72,6 +74,19 @@ return {
 			vim.g.terminal_color_15 = "#ffffff" -- bright white
 		end,
 	},
+	-- {
+	-- 	"scottmckendry/cyberdream.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000000,
+	-- 	opts = {
+	-- 		transparent = true,
+	-- 		borderless_pickers = false,
+	-- 		cache = true,
+	-- 	},
+	-- 	init = function()
+	-- 		vim.cmd("colorscheme cyberdream")
+	-- 	end,
+	-- },
 	-- {
 	-- 	"slugbyte/lackluster.nvim",
 	-- 	name = "lackluster",

@@ -37,3 +37,4 @@ vim.api.nvim_set_keymap("t", "<C-w>l", [[<C-\><C-n><C-w>l]], { noremap = true, s
 
 vim.opt.list = false
 -- vim.opt.listchars = { tab = "→ ", eol = "↲", space = "·" }
+vim.opt.listchars = vim.opt.listchars + "space:·"
