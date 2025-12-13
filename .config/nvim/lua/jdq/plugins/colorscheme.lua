@@ -1,174 +1,79 @@
 return {
 	-- {
-	-- 	"datsfilipe/vesper.nvim",
-	-- 	name = "vesper",
+	-- 	"bjarneo/ash.nvim",
+	-- 	priority = 1000,
 	-- 	config = function()
-	-- 		require("vesper").setup({
-	-- 			transparent = false, -- Boolean: Sets the background to transparent
-	-- 			italics = {
-	-- 				comments = true, -- Boolean: Italicizes comments
-	-- 				keywords = false, -- Boolean: Italicizes keywords
-	-- 				functions = false, -- Boolean: Italicizes functions
-	-- 				strings = false, -- Boolean: Italicizes strings
-	-- 				variables = false, -- Boolean: Italicizes variables
-	-- 			},
-	-- 			overrides = { -- A dictionary of group names, can be a function returning a dictionary or a table.
-	-- 				Number = { bold = false },
-	-- 			},
-	-- 			palette_overrides = {},
-	-- 		})
-	-- 		vim.cmd("colorscheme vesper")
+	-- 		vim.cmd([[colorscheme ash]])
 	-- 		vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
 	-- 		vim.cmd("hi LineNr guibg=NONE ctermbg=NONE")
-	-- 		vim.cmd("hi NormalFloat guibg=#000000")
-	-- 		vim.api.nvim_set_hl(0, "Whitespace", { fg = "#404040" })
+	-- 		vim.cmd("hi DiagnosticFloatingError guifg=#ff8080")
+	-- 		vim.cmd("hi DiagnosticFloatingWarn guifg=#ffc799")
+	-- 		vim.cmd("hi DiagnosticFloatingInfo guifg=#80aaff")
+	-- 		vim.cmd("hi DiagnosticFloatingHint guifg=#a0a0a0")
 	--
-	-- 		-- Add diagnostic underlines
+	-- 		-- add diagnostic underlines
 	-- 		vim.cmd("hi DiagnosticUnderlineError guisp=#ff8080 gui=undercurl")
 	-- 		vim.cmd("hi DiagnosticUnderlineWarn guisp=#ffc799 gui=undercurl")
 	-- 		vim.cmd("hi DiagnosticUnderlineInfo guisp=#80aaff gui=undercurl")
 	-- 		vim.cmd("hi DiagnosticUnderlineHint guisp=#a0a0a0 gui=undercurl")
+	--
+	-- 		-- modifications
+	-- 		vim.cmd("hi @string guifg=#7EAB8E")
+	-- 		vim.cmd("hi @lsp.type.function guifg=#FFBE89")
+	-- 		vim.cmd("hi @lsp.typemod.function.declaration guifg=#FFBE89")
+	-- 		vim.cmd("hi @function guifg=#FFBE89")
+	-- 		vim.cmd("hi @function.call guifg=#FFBE89")
+	--
+	-- 		-- Terminal colors (16 ANSI colors)
+	-- 		vim.g.terminal_color_0 = "#000000" -- black
+	-- 		vim.g.terminal_color_1 = "#ff8080" -- red (git deletions)
+	-- 		vim.g.terminal_color_2 = "#7EAB8E" -- green (git additions, strings)
+	-- 		vim.g.terminal_color_3 = "#FFBE89" -- yellow/orange (functions)
+	-- 		vim.g.terminal_color_4 = "#80aaff" -- blue (info)
+	-- 		vim.g.terminal_color_5 = "#c792ea" -- magenta/purple
+	-- 		vim.g.terminal_color_6 = "#89ddff" -- cyan
+	-- 		vim.g.terminal_color_7 = "#cccccc" -- white/gray
+	-- 		vim.g.terminal_color_8 = "#555555" -- bright black (gray)
+	-- 		vim.g.terminal_color_9 = "#ff8080" -- bright red
+	-- 		vim.g.terminal_color_10 = "#7EAB8E" -- bright green
+	-- 		vim.g.terminal_color_11 = "#ffc799" -- bright yellow (warnings)
+	-- 		vim.g.terminal_color_12 = "#80aaff" -- bright blue
+	-- 		vim.g.terminal_color_13 = "#c792ea" -- bright magenta
+	-- 		vim.g.terminal_color_14 = "#89ddff" -- bright cyan
+	-- 		vim.g.terminal_color_15 = "#ffffff" -- bright white
 	-- 	end,
 	-- },
 	{
-		"bjarneo/ash.nvim",
+		"zenbones-theme/zenbones.nvim",
+		dependencies = "rktjmp/lush.nvim",
+		lazy = false,
 		priority = 1000,
 		config = function()
-			vim.cmd([[colorscheme ash]])
+			local palette = require("zenbones.palette")
+			vim.cmd("colorscheme zenbones")
+
+			-- remove bold from all highlights
+			local function remove_bold_from_all()
+				local groups = vim.fn.getcompletion("", "highlight")
+				for _, group in ipairs(groups) do
+					local hl = vim.api.nvim_get_hl(0, { name = group })
+					if hl.bold then
+						hl.bold = false
+						vim.api.nvim_set_hl(0, group, hl)
+					end
+				end
+			end
+			remove_bold_from_all()
+
 			vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
 			vim.cmd("hi LineNr guibg=NONE ctermbg=NONE")
-			vim.cmd("hi DiagnosticFloatingError guifg=#ff8080")
-			vim.cmd("hi DiagnosticFloatingWarn guifg=#ffc799")
-			vim.cmd("hi DiagnosticFloatingInfo guifg=#80aaff")
-			vim.cmd("hi DiagnosticFloatingHint guifg=#a0a0a0")
+			vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#000000" })
 
-			-- add diagnostic underlines
-			vim.cmd("hi DiagnosticUnderlineError guisp=#ff8080 gui=undercurl")
-			vim.cmd("hi DiagnosticUnderlineWarn guisp=#ffc799 gui=undercurl")
-			vim.cmd("hi DiagnosticUnderlineInfo guisp=#80aaff gui=undercurl")
-			vim.cmd("hi DiagnosticUnderlineHint guisp=#a0a0a0 gui=undercurl")
+			local bg = vim.o.background
+			local leaf_color = palette[bg].leaf.hex
 
-			-- modifications
-			vim.cmd("hi @string guifg=#7EAB8E")
-			vim.cmd("hi @lsp.type.function guifg=#FFBE89")
-			vim.cmd("hi @lsp.typemod.function.declaration guifg=#FFBE89")
-			vim.cmd("hi @function guifg=#FFBE89")
-			vim.cmd("hi @function.call guifg=#FFBE89")
-
-			-- Terminal colors (16 ANSI colors)
-			vim.g.terminal_color_0 = "#000000" -- black
-			vim.g.terminal_color_1 = "#ff8080" -- red (git deletions)
-			vim.g.terminal_color_2 = "#7EAB8E" -- green (git additions, strings)
-			vim.g.terminal_color_3 = "#FFBE89" -- yellow/orange (functions)
-			vim.g.terminal_color_4 = "#80aaff" -- blue (info)
-			vim.g.terminal_color_5 = "#c792ea" -- magenta/purple
-			vim.g.terminal_color_6 = "#89ddff" -- cyan
-			vim.g.terminal_color_7 = "#cccccc" -- white/gray
-			vim.g.terminal_color_8 = "#555555" -- bright black (gray)
-			vim.g.terminal_color_9 = "#ff8080" -- bright red
-			vim.g.terminal_color_10 = "#7EAB8E" -- bright green
-			vim.g.terminal_color_11 = "#ffc799" -- bright yellow (warnings)
-			vim.g.terminal_color_12 = "#80aaff" -- bright blue
-			vim.g.terminal_color_13 = "#c792ea" -- bright magenta
-			vim.g.terminal_color_14 = "#89ddff" -- bright cyan
-			vim.g.terminal_color_15 = "#ffffff" -- bright white
+			vim.api.nvim_set_hl(0, "@string", { fg = leaf_color })
+			vim.api.nvim_set_hl(0, "String", { fg = leaf_color })
 		end,
 	},
-	-- {
-	-- 	"scottmckendry/cyberdream.nvim",
-	-- 	lazy = false,
-	-- 	priority = 1000000,
-	-- 	opts = {
-	-- 		transparent = true,
-	-- 		borderless_pickers = false,
-	-- 		cache = true,
-	-- 	},
-	-- 	init = function()
-	-- 		vim.cmd("colorscheme cyberdream")
-	-- 	end,
-	-- },
-	-- {
-	-- 	"slugbyte/lackluster.nvim",
-	-- 	name = "lackluster",
-	-- 	config = function()
-	-- 		local lackluster = require("lackluster")
-	-- 		local color = lackluster.color
-	-- 		lackluster.setup({
-	-- 			tweak_color = {
-	-- 				lack = "#555555",
-	-- 			},
-	-- 			tweak_background = {
-	-- 				normal = "none", -- hexcode
-	-- 				telescope = color.gray1, -- telescope
-	-- 				menu = color.gray1, -- nvim_cmp, wildmenu ... (bad idea to transparent)
-	-- 				popup = color.gray1, -- lazy, mason, whichkey ... (bad idea to transparent)
-	-- 			},
-	-- 			tweak_highlight = {
-	-- 				["@function"] = {
-	-- 					overwrite = false,
-	-- 					fg = "#FFBE89",
-	-- 				},
-	-- 				["tsxTagName"] = {
-	-- 					overwrite = false,
-	-- 					fg = "#FFBE89",
-	-- 				},
-	-- 				["DiagnosticWarn"] = {
-	-- 					overwrite = false,
-	-- 					fg = "#FFF2AF",
-	-- 				},
-	-- 				["DiagnosticVirtualTextWarn"] = {
-	-- 					overwrite = false,
-	-- 					fg = "#FFF2AF",
-	-- 				},
-	-- 				["DiagnosticError"] = {
-	-- 					overwrite = false,
-	-- 					fg = "#F57A7A",
-	-- 				},
-	-- 				["DiagnosticVirtualTextError"] = {
-	-- 					overwrite = false,
-	-- 					fg = "#F57A7A",
-	-- 				},
-	-- 				["DiagnosticUnderlineError"] = {
-	-- 					overwrite = true, -- changed to true
-	-- 					sp = "#F57a7a", -- sp = special/underline color
-	-- 					undercurl = true, -- or set to true if you want curly underline
-	-- 					underline = true,
-	-- 				},
-	-- 				["DiagnosticSignError"] = {
-	-- 					overwrite = true,
-	-- 					fg = "#F57a7a",
-	-- 				},
-	-- 			},
-	-- 			tweak_syntax = {
-	-- 				type = "#555555",
-	-- 				string = "#7EAB8E",
-	-- 			},
-	-- 		})
-	-- 		vim.cmd("colorscheme lackluster")
-	-- 	end,
-	-- },
-	-- {
-	-- 	"chriskempson/base16-vim",
-	-- 	lazy = false,
-	-- 	priority = 1000, -- Higher priority to load before other themes
-	-- 	config = function()
-	-- 		vim.cmd("colorscheme base16-black-metal-gorgoroth")
-	-- 		vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
-	-- 		vim.cmd("hi LineNr guibg=NONE ctermbg=NONE")
-	--
-	-- 		-- Make error highlighting more prominent
-	-- 		vim.cmd("hi Error guifg=#ff5555 guibg=#330000 gui=bold")
-	-- 		vim.cmd("hi ErrorMsg guifg=#ff5555 guibg=#330000 gui=bold")
-	--
-	-- 		-- For diagnostics (LSP errors/warnings)
-	-- 		vim.cmd("hi DiagnosticError guifg=#ff5555 gui=underline,bold")
-	-- 		vim.cmd("hi DiagnosticWarn guifg=#ffaa77 gui=underline,bold")
-	-- 		vim.cmd("hi DiagnosticUnderlineError guisp=#ff5555 gui=undercurl")
-	-- 		vim.cmd("hi DiagnosticUnderlineWarn guisp=#ffaa77 gui=undercurl")
-	--
-	-- 		-- Virtual text (inline error messages)
-	-- 		vim.cmd("hi DiagnosticVirtualTextError guifg=#ff5555 guibg=#330000 gui=bold")
-	-- 		vim.cmd("hi DiagnosticVirtualTextWarn guifg=#ffaa77 guibg=#332200 gui=bold")
-	-- 	end,
-	-- },
 }
