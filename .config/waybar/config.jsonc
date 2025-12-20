@@ -60,7 +60,7 @@
     "on-click": "omarchy-launch-or-focus-tui btop"
   },
   "clock": {
-    "format": "{:%m/%d %I:%M %p}",
+    "format": "{:%b %d, %Y %I:%M %p}",
     "tooltip": false,
   },
   "network": {
