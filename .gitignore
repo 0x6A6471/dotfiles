@@ -20,6 +20,9 @@
 # allow ghostty
 !/.config/ghostty
 
+# allow kitty
+!/.config/kitty
+
 # allow neovim
 !/.config/nvim
 
