@@ -1,3 +1,4 @@
 function fish_prompt
-  echo -n (set_color green)"; "(set_color normal)
+  echo -n (set_color normal)"; "(set_color normal)
 end
+

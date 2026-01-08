@@ -11,12 +11,12 @@
   alias gp="git push"
   alias gpp="git pull"
 
-  # lsd
-  alias ls='lsd --icon never'
-  alias l='ls -l'
-  alias la='ls -a'
-  alias lla='ls -la'
-  alias lt='ls --tree'
+# eza
+alias ls='eza --icons=never'
+alias l='eza -l'
+alias la='eza -a'
+alias lla='eza -la'
+alias lt='eza -T'
 
 # fzf
 function fcd
