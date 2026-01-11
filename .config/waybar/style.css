@@ -27,13 +27,23 @@ window#waybar {
 }
 
 #workspaces button {
-  all: initial;
-  padding: 0 6px;
+  padding: 0 4px;
   margin: 0 1.5px;
+  background: transparent;
 }
 
 #workspaces button.empty {
   opacity: 0.5;
+}
+
+#workspaces button.active label {
+  color: @accent;
+}
+
+#custom-arch {
+  color: @accent;
+  margin-left: 4px;
+  margin-right: 8px;
 }
 
 #tray,
@@ -42,7 +52,6 @@ window#waybar {
 #network,
 #bluetooth,
 #pulseaudio,
-#custom-omarchy,
 #custom-screenrecording-indicator,
 #custom-update {
   min-width: 12px;
