@@ -43,37 +43,82 @@ return {
 	-- 		vim.g.terminal_color_15 = "#ffffff" -- bright white
 	-- 	end,
 	-- },
+	-- {
+	-- 	"zenbones-theme/zenbones.nvim",
+	-- 	dependencies = "rktjmp/lush.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		local palette = require("zenbones.palette")
+	-- 		vim.cmd("colorscheme zenbones")
+	--
+	-- 		-- remove bold from all highlights
+	-- 		local function remove_bold_from_all()
+	-- 			local groups = vim.fn.getcompletion("", "highlight")
+	-- 			for _, group in ipairs(groups) do
+	-- 				local hl = vim.api.nvim_get_hl(0, { name = group })
+	-- 				if hl.bold then
+	-- 					hl.bold = false
+	-- 					vim.api.nvim_set_hl(0, group, hl)
+	-- 				end
+	-- 			end
+	-- 		end
+	-- 		remove_bold_from_all()
+	--
+	-- 		vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
+	-- 		vim.cmd("hi LineNr guibg=NONE ctermbg=NONE")
+	-- 		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#000000" })
+	--
+	-- 		local bg = vim.o.background
+	-- 		local leaf_color = palette[bg].leaf.hex
+	--
+	-- 		vim.api.nvim_set_hl(0, "@string", { fg = leaf_color })
+	-- 		vim.api.nvim_set_hl(0, "String", { fg = leaf_color })
+	-- 	end,
+	-- },
 	{
-		"zenbones-theme/zenbones.nvim",
-		dependencies = "rktjmp/lush.nvim",
+		"oskarnurm/koda.nvim",
 		lazy = false,
 		priority = 1000,
 		config = function()
-			local palette = require("zenbones.palette")
-			vim.cmd("colorscheme zenbones")
-
-			-- remove bold from all highlights
-			local function remove_bold_from_all()
-				local groups = vim.fn.getcompletion("", "highlight")
-				for _, group in ipairs(groups) do
-					local hl = vim.api.nvim_get_hl(0, { name = group })
-					if hl.bold then
-						hl.bold = false
-						vim.api.nvim_set_hl(0, group, hl)
-					end
-				end
-			end
-			remove_bold_from_all()
-
-			vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
-			vim.cmd("hi LineNr guibg=NONE ctermbg=NONE")
-			vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#000000" })
-
-			local bg = vim.o.background
-			local leaf_color = palette[bg].leaf.hex
-
-			vim.api.nvim_set_hl(0, "@string", { fg = leaf_color })
-			vim.api.nvim_set_hl(0, "String", { fg = leaf_color })
+			require("koda").setup({
+				styles = {
+					functions = { bold = false },
+					keywords = {},
+					comments = { italic = true },
+					strings = {},
+					constants = {}, -- includes numbers, booleans
+				},
+				colors = {
+					bg = "#000000",
+					fg = "#b0b0b0",
+					dim = "#000000",
+					line = "#272727",
+					keyword = "#777777",
+					comment = "#50585d",
+					border = "#ffffff",
+					emphasis = "#ffffff",
+					func = "#ffffff",
+					-- string = "#ffffff",
+					string = "#819B69",
+					const = "#d9ba73",
+					highlight = "#458ee6",
+					info = "#8ebeec",
+					success = "#86cd82",
+					warning = "#d9ba73",
+					danger = "#ff7676",
+					green = "#14ba19",
+					orange = "#f54d27",
+					red = "#701516",
+					pink = "#f2a4db",
+					cyan = "#5abfb5",
+				},
+			})
+			vim.cmd("colorscheme koda")
+			vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", { undercurl = true, sp = "#ff7676" })
+			vim.api.nvim_set_hl(0, "DiagnosticUnderlineWarn", { undercurl = true, sp = "#d9ba73" })
+			vim.api.nvim_set_hl(0, "DiagnosticUnderlineInfo", { undercurl = true, sp = "#8ebeec" })
+			vim.api.nvim_set_hl(0, "DiagnosticUnderlineHint", { undercurl = true, sp = "#86cd82" })
 		end,
 	},
 }

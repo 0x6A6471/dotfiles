@@ -9,6 +9,7 @@ return {
 		debug = {
 			enabled = true,
 			show_scores = true,
+			show_file_info = true,
 		},
 	},
 	keys = {
