@@ -18,9 +18,9 @@ return {
 
 		-- Required for `opts.events.reload`.
 		vim.o.autoread = true
-		vim.keymap.set({ "n", "x" }, "<leader>a", function()
-			require("opencode").ask("@this: ", { submit = true })
-		end, { desc = "Ask opencode" })
+		-- vim.keymap.set({ "n", "x" }, "<leader>a", function()
+		-- 	require("opencode").ask("@this: ", { submit = true })
+		-- end, { desc = "Ask opencode" })
 		vim.keymap.set({ "n" }, "<leader>o", function()
 			require("opencode").toggle()
 		end, { desc = "Toggle opencode" })
