@@ -68,6 +68,11 @@ return {
 			on_attach = on_attach,
 		})
 
+		vim.lsp.config("elixirls", {
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
 		vim.lsp.config("eslint", {
 			capabilities = capabilities,
 			on_attach = on_attach,
@@ -140,6 +145,7 @@ return {
 		vim.lsp.enable("clangd")
 		vim.lsp.enable("cssls")
 		vim.lsp.enable("html")
+		vim.lsp.enable("elixirls")
 		vim.lsp.enable("eslint")
 		vim.lsp.enable("lua_ls")
 		vim.lsp.enable("ocamllsp")

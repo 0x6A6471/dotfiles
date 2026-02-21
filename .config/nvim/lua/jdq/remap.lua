@@ -21,3 +21,5 @@ vim.keymap.set("n", "<leader>Y", '"+Y')
 vim.keymap.set("n", "<C-v>", '"+p')
 vim.keymap.set("v", "<C-v>", '"+p')
 vim.keymap.set("i", "<C-v>", '<Esc>"+pa')
+
+vim.keymap.set("n", "<leader>env", ":edit .env<CR>", { desc = "Open .env file" })

@@ -10,11 +10,11 @@
   "friendly-snippets": { "branch": "main", "commit": "6cd7280adead7f586db6fccbd15d2cac7e2188b9" },
   "fzf-lua": { "branch": "main", "commit": "36d60dd59cd9bc0442352119fc0e45e1c9011e03" },
   "harpoon": { "branch": "master", "commit": "1bc17e3e42ea3c46b33c0bbad6a880792692a1b3" },
+  "koda.nvim": { "branch": "main", "commit": "9c69db5df7f1a82851d87fdac5b37a469213ac16" },
   "lazy.nvim": { "branch": "main", "commit": "306a05526ada86a7b30af95c5cc81ffba93fef97" },
   "lazygit.nvim": { "branch": "main", "commit": "a04ad0dbc725134edbee3a5eea29290976695357" },
   "lspkind.nvim": { "branch": "master", "commit": "c7274c48137396526b59d86232eabcdc7fed8a32" },
   "lualine.nvim": { "branch": "master", "commit": "47f91c416daef12db467145e16bed5bbfe00add8" },
-  "lush.nvim": { "branch": "main", "commit": "9c60ec2279d62487d942ce095e49006af28eed6e" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "c953789db7fd28eafe5eb5659846d34b5024b3cc" },
   "mason-tool-installer.nvim": { "branch": "main", "commit": "443f1ef8b5e6bf47045cb2217b6f748a223cf7dc" },
   "mason.nvim": { "branch": "main", "commit": "44d1e90e1f66e077268191e3ee9d2ac97cc18e65" },
@@ -34,8 +34,8 @@
   "supermaven-nvim": { "branch": "main", "commit": "07d20fce48a5629686aefb0a7cd4b25e33947d50" },
   "todo-comments.nvim": { "branch": "main", "commit": "31e3c38ce9b29781e4422fc0322eb0a21f4e8668" },
   "trouble.nvim": { "branch": "main", "commit": "bd67efe408d4816e25e8491cc5ad4088e708a69a" },
+  "undotree": { "branch": "master", "commit": "d8f99084d98c32f651860eb0baaf89759f91debc" },
   "vim-dadbod": { "branch": "master", "commit": "6d1d41da4873a445c5605f2005ad2c68c99d8770" },
   "vim-dadbod-completion": { "branch": "master", "commit": "a8dac0b3cf6132c80dc9b18bef36d4cf7a9e1fe6" },
-  "vim-dadbod-ui": { "branch": "master", "commit": "48c4f271da13d380592f4907e2d1d5558044e4e5" },
-  "zenbones.nvim": { "branch": "main", "commit": "4635a3f46d1066975d1074cd9f61f93cb1e32f64" }
+  "vim-dadbod-ui": { "branch": "master", "commit": "48c4f271da13d380592f4907e2d1d5558044e4e5" }
 }

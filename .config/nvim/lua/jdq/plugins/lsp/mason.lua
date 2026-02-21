@@ -19,6 +19,7 @@ return {
 			ensure_installed = {
 				"clangd",
 				"cssls",
+				"elixirls",
 				"eslint",
 				"html",
 				"lua_ls",

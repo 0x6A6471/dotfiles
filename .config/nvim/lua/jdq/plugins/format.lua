@@ -36,6 +36,11 @@ return {
 						"-",
 					},
 				},
+				mix = {
+					command = "mix",
+					args = { "format", "--stdin-filename", "$FILENAME", "-" },
+					stdin = true,
+				},
 			},
 			formatters_by_ft = {
 				css = get_web_formatters(),
@@ -50,6 +55,9 @@ return {
 				ocaml = { "ml-format" },
 				ocaml_mlx = { "ocamlformat_mlx" },
 				python = { "isort", "black" },
+				elixir = { "mix" },
+				eelixir = { "mix" },
+				heex = { "mix" },
 			},
 			format_on_save = {
 				lsp_fallback = true,

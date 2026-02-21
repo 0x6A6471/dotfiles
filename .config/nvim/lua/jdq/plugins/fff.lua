@@ -18,14 +18,14 @@ return {
 			function()
 				require("fff").find_in_git_root()
 			end,
-			desc = "Find files",
+			desc = "Find files in current git repository",
 		},
 		{
 			"<C-p>",
 			function()
 				require("fff").find_files()
 			end,
-			desc = "Find files in git root",
+			desc = "Find files in current directory",
 		},
 	},
 }
