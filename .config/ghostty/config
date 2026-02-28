@@ -64,3 +64,6 @@ window-theme = ghostty
 
 # window-inherit-working-directory = false
 # working-directory = home
+
+# Fix general slowness on hyprland (https://github.com/ghostty-org/ghostty/discussions/3224)
+async-backend = epoll
