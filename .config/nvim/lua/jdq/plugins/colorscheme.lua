@@ -81,6 +81,15 @@ return {
 		lazy = false,
 		priority = 1000,
 		config = function()
+			local function strip_all_bold()
+				local groups = vim.api.nvim_get_hl(0, {})
+				for name, def in pairs(groups) do
+					if def.bold then
+						def.bold = false
+						vim.api.nvim_set_hl(0, name, def)
+					end
+				end
+			end
 			require("koda").setup({
 				styles = {
 					functions = { bold = false },
@@ -97,10 +106,8 @@ return {
 					keyword = "#777777",
 					comment = "#50585d",
 					border = "#272727",
-					-- border = "#ffffff",
 					emphasis = "#ffffff",
 					func = "#ffffff",
-					-- string = "#ffffff",
 					string = "#819B69",
 					const = "#d9ba73",
 					highlight = "#458ee6",
@@ -114,8 +121,19 @@ return {
 					pink = "#f2a4db",
 					cyan = "#5abfb5",
 				},
+				on_highlights = function(hl, _)
+					for _, spec in pairs(hl) do
+						if type(spec) == "table" then
+							spec.bold = false
+						end
+					end
+				end,
 			})
 			vim.cmd("colorscheme koda")
+			strip_all_bold()
+			vim.api.nvim_create_autocmd("ColorScheme", {
+				callback = strip_all_bold,
+			})
 			vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", { undercurl = true, sp = "#ff7676" })
 			vim.api.nvim_set_hl(0, "DiagnosticUnderlineWarn", { undercurl = true, sp = "#d9ba73" })
 			vim.api.nvim_set_hl(0, "DiagnosticUnderlineInfo", { undercurl = true, sp = "#8ebeec" })

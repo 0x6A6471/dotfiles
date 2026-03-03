@@ -9,7 +9,7 @@ return {
 	config = function()
 		---@type opencode.Opts
 		vim.g.opencode_opts = {
-			provider = {
+			server = {
 				cmd = "opencode --port",
 				enabled = "terminal",
 				terminal = {},

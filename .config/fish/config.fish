@@ -34,3 +34,6 @@ set --export PATH $BUN_INSTALL/bin $PATH
 # opencode
 fish_add_path /home/x6a6471/.opencode/bin
 set fish_greeting
+
+# rust
+fish_add_path -m ~/.cargo/bin

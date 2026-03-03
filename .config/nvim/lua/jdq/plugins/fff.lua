@@ -1,6 +1,8 @@
 return {
 	"dmtrKovalenko/fff.nvim",
-	build = "cargo build --release",
+	build = function()
+		require("fff.download").download_or_build_binary()
+	end,
 	dependencies = {
 		"nvim-tree/nvim-web-devicons",
 	},
@@ -9,23 +11,23 @@ return {
 		debug = {
 			enabled = true,
 			show_scores = true,
-			show_file_info = true,
+			show_file_info = false,
 		},
 	},
 	keys = {
 		{
 			"df",
 			function()
-				require("fff").find_in_git_root()
+				require("fff").find_files()
 			end,
 			desc = "Find files in current git repository",
 		},
 		{
-			"<C-p>",
+			"fs",
 			function()
-				require("fff").find_files()
+				require("fff").live_grep()
 			end,
-			desc = "Find files in current directory",
+			desc = "LiFFFe grep",
 		},
 	},
 }
