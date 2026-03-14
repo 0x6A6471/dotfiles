@@ -13,7 +13,10 @@ return {
 		indent = { enabled = false },
 		input = { enabled = true },
 		notifier = { enabled = false },
-		picker = { enabled = false },
+		picker = {
+			enabled = true,
+			ui_select = true,
+		},
 		quickfile = { enabled = false },
 		scope = { enabled = false },
 		scroll = { enabled = false },
@@ -37,6 +40,13 @@ return {
 				Snacks.terminal()
 			end,
 			desc = "Toggle Terminal",
+		},
+		{
+			"<leader>p",
+			function()
+				Snacks.picker.commands()
+			end,
+			desc = "Command Palette",
 		},
 	},
 }

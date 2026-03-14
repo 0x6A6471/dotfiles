@@ -55,9 +55,9 @@ return {
 				ocaml = { "ml-format" },
 				ocaml_mlx = { "ocamlformat_mlx" },
 				python = { "isort", "black" },
-				elixir = { "mix" },
-				eelixir = { "mix" },
-				heex = { "mix" },
+				-- elixir = { "mix" },
+				-- eelixir = { "mix" },
+				-- heex = { "mix" },
 			},
 			format_on_save = {
 				lsp_fallback = true,
