@@ -1,5 +1,6 @@
 return {
 	"dmtrKovalenko/fff.nvim",
+	tag = "v0.4.2",
 	build = function()
 		require("fff.download").download_or_build_binary()
 	end,
