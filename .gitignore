@@ -37,3 +37,6 @@
 
 # allow waybar
 !/.config/waybar
+
+# allow gf
+!/.config/gf2_config.ini

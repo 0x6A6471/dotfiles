@@ -123,6 +123,11 @@ return {
 		vim.lsp.config("tailwindcss", {
 			capabilities = capabilities,
 			on_attach = on_attach,
+			settings = {
+				tailwindCSS = {
+					colorDecorators = false,
+				},
+			},
 		})
 
 		-- vim.lsp.config("ts_ls", {
