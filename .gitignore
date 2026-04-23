@@ -40,3 +40,6 @@
 
 # allow gf
 !/.config/gf2_config.ini
+
+# allow solaar
+!/.config/solaar
