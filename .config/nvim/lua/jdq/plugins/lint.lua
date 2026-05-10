@@ -1,25 +1,46 @@
 return {
-  "mfussenegger/nvim-lint",
-  event = { "BufReadPre", "BufNewFile" },
-  config = function()
-    local lint = require("lint")
-
-    lint.linters_by_ft = {
-      javascript = { "eslint_d" },
-      javascriptreact = { "eslint_d" },
-      typescript = { "eslint_d" },
-      typescriptreact = { "eslint_d" },
-
-      python = { "pylint" },
-    }
-
-    local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
-
-    vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
-      group = lint_augroup,
-      callback = function()
-        lint.try_lint()
-      end,
-    })
-  end,
+	"mfussenegger/nvim-lint",
+	event = { "BufReadPre", "BufNewFile" },
+	config = function()
+		local lint = require("lint")
+		local function get_project_root_from_file(filename)
+			if filename == "" then
+				return vim.fn.getcwd()
+			end
+			local dirname = vim.fs.dirname(filename)
+			local root = vim.fs.root(dirname, {
+				"package.json",
+				"biome.json",
+				"biome.jsonc",
+				".git",
+			})
+			return root or dirname
+		end
+		local function has_local_bin(root, name)
+			return vim.fn.executable(root .. "/node_modules/.bin/" .. name) == 1
+		end
+		lint.linters.oxlint.cmd = function()
+			local filename = vim.api.nvim_buf_get_name(0)
+			local root = get_project_root_from_file(filename)
+			local local_oxlint = root .. "/node_modules/.bin/oxlint"
+			if vim.fn.executable(local_oxlint) == 1 then
+				return local_oxlint
+			end
+			return "oxlint"
+		end
+		lint.linters_by_ft = {
+			javascript = { "oxlint" },
+			javascriptreact = { "oxlint" },
+			typescript = { "oxlint" },
+			typescriptreact = { "oxlint" },
+			python = { "pylint" },
+		}
+		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
+		vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
+			group = lint_augroup,
+			callback = function()
+				lint.try_lint()
+			end,
+		})
+	end,
 }
