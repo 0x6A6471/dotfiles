@@ -37,3 +37,10 @@ set fish_greeting
 
 # rust
 fish_add_path -m ~/.cargo/bin
+
+# pnpm
+set -gx PNPM_HOME "/home/x6a6471/.local/share/pnpm"
+if not string match -q -- "$PNPM_HOME/bin" $PATH
+  set -gx PATH "$PNPM_HOME/bin" $PATH
+end
+# pnpm end
