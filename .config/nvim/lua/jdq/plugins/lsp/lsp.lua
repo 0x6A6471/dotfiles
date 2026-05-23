@@ -8,6 +8,7 @@ return {
 	},
 	config = function()
 		local capabilities = require("blink.cmp").get_lsp_capabilities().capabilities
+		vim.lsp.document_color.enable(false)
 
 		vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
 			pattern = "*.mlx",
