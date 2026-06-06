@@ -20,7 +20,6 @@ return {
 				"clangd",
 				"cssls",
 				"elixirls",
-				"eslint",
 				"html",
 				"lua_ls",
 				"tailwindcss",
@@ -33,7 +32,6 @@ return {
 
 		mason_tool_installer.setup({
 			ensure_installed = {
-				"eslint_d",
 				"stylua",
 			},
 		})

@@ -3,27 +3,34 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		local lint = require("lint")
-		local function get_project_root_from_file(filename)
+		local function get_start_dir(filename)
 			if filename == "" then
 				return vim.fn.getcwd()
 			end
-			local dirname = vim.fs.dirname(filename)
-			local root = vim.fs.root(dirname, {
-				"package.json",
-				"biome.json",
-				"biome.jsonc",
-				".git",
-			})
-			return root or dirname
+			return vim.fs.dirname(filename)
 		end
-		local function has_local_bin(root, name)
-			return vim.fn.executable(root .. "/node_modules/.bin/" .. name) == 1
+
+		local function find_local_bin_from_file(filename, name)
+			local dir = get_start_dir(filename)
+			while dir ~= nil and dir ~= "" do
+				local candidate = dir .. "/node_modules/.bin/" .. name
+				if vim.fn.executable(candidate) == 1 then
+					return candidate
+				end
+
+				local parent = vim.fs.dirname(dir)
+				if parent == dir then
+					break
+				end
+				dir = parent
+			end
+			return nil
 		end
+
 		lint.linters.oxlint.cmd = function()
 			local filename = vim.api.nvim_buf_get_name(0)
-			local root = get_project_root_from_file(filename)
-			local local_oxlint = root .. "/node_modules/.bin/oxlint"
-			if vim.fn.executable(local_oxlint) == 1 then
+			local local_oxlint = find_local_bin_from_file(filename, "oxlint")
+			if local_oxlint then
 				return local_oxlint
 			end
 			return "oxlint"

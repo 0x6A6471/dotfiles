@@ -31,13 +31,42 @@ return {
 			return get_project_root_from_file(filename)
 		end
 
-		local function has_local_bin(root, name)
-			return vim.fn.executable(root .. "/node_modules/.bin/" .. name) == 1
+		local function get_start_dir(filename)
+			if filename == "" then
+				return vim.fn.getcwd()
+			end
+			return vim.fs.dirname(filename)
+		end
+
+		local function find_local_bin_from_file(filename, name)
+			local dir = get_start_dir(filename)
+			while dir ~= nil and dir ~= "" do
+				local candidate = dir .. "/node_modules/.bin/" .. name
+				if vim.fn.executable(candidate) == 1 then
+					return candidate
+				end
+
+				local parent = vim.fs.dirname(dir)
+				if parent == dir then
+					break
+				end
+				dir = parent
+			end
+			return nil
+		end
+
+		local function has_oxfmt_config(filename)
+			local config = vim.fs.find({ ".oxfmtrc.json", ".oxfmtrc.jsonc", "oxfmt.config.ts" }, {
+				path = get_start_dir(filename),
+				upward = true,
+			})[1]
+			return config ~= nil
 		end
 
 		local function get_web_formatters(bufnr)
+			local filename = vim.api.nvim_buf_get_name(bufnr)
 			local root = get_project_root(bufnr)
-			if has_local_bin(root, "oxfmt") then
+			if find_local_bin_from_file(filename, "oxfmt") or has_oxfmt_config(filename) then
 				return { "oxfmt" }
 			end
 			if file_exists(root .. "/biome.json") or file_exists(root .. "/biome.jsonc") then
@@ -50,9 +79,8 @@ return {
 			formatters = {
 				oxfmt = {
 					command = function(_, ctx)
-						local root = get_project_root_from_file(ctx.filename)
-						local local_oxfmt = root .. "/node_modules/.bin/oxfmt"
-						if vim.fn.executable(local_oxfmt) == 1 then
+						local local_oxfmt = find_local_bin_from_file(ctx.filename, "oxfmt")
+						if local_oxfmt then
 							return local_oxfmt
 						end
 						return "oxfmt"
