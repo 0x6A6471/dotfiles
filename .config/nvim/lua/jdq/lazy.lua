@@ -12,3 +12,4 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({{import = "jdq.plugins"}, {import = "jdq.plugins.lsp"}})
+

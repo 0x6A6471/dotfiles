@@ -1,0 +1,128 @@
+@define-color bg #000000;
+@define-color bg_alt rgba(18, 18, 18, 0.96);
+@define-color selected rgba(17, 17, 17, 0.94);
+@define-color fg #ffffff;
+@define-color border rgba(42, 42, 42, 0.85);
+
+* {
+  font-family: "Berkeley Mono";
+  font-size: 14px;
+  color: @fg;
+  background-color: transparent;
+  border-radius: 0px;
+  box-shadow: none;
+}
+
+/* Main window */
+window {
+  background-color: transparent;
+  opacity: 0.9;
+}
+
+/* Outer container */
+.box-wrapper,
+.box,
+.main {
+  background-color: @bg;
+  border: none;
+  padding: 4px;
+}
+
+/* Search box */
+.search-container {
+  background-color: @bg_alt;
+  border: 1px solid rgba(48, 48, 48, 0.8);
+  padding: 4px;
+}
+
+.search-container,
+.search-container:focus,
+.search-container:focus-within,
+.input,
+.input:focus,
+entry,
+entry:focus {
+  background-color: @bg_alt;
+  border-color: rgba(48, 48, 48, 0.8);
+  outline: none;
+  box-shadow: none;
+}
+
+.input,
+entry {
+  background-color: transparent;
+  color: @fg;
+  border: none;
+}
+
+/* Results area */
+list,
+listview,
+scroll,
+viewport,
+.items {
+  background-color: transparent;
+  border: none;
+}
+
+row,
+.item {
+  background-color: transparent;
+  color: @fg;
+  border: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.item-box {
+  margin: 0px;
+  padding: 2px 8px;
+}
+
+/* Selected row: visible, but blends with dark theme */
+row:selected,
+row:hover,
+.item:selected,
+.item:hover,
+.item.active,
+.selected {
+  background-color: @selected;
+  color: @fg;
+}
+
+row:selected:hover,
+.item:selected:hover {
+  background-color: @selected;
+}
+
+/* Text */
+label,
+text,
+.item-title {
+  color: @fg;
+}
+
+.item-subtitle,
+.item-subtext {
+  opacity: 0;
+  font-size: 0px;
+  min-height: 0px;
+  margin: 0px;
+  padding: 0px;
+}
+
+image,
+.item-image,
+.icon {
+  -gtk-icon-size: 24px;
+  min-width: 24px;
+  min-height: 24px;
+  max-width: 24px;
+  max-height: 24px;
+}
+
+/* Kill GTK blue selection */
+*:selected {
+  background-color: @selected;
+  color: @fg;
+}

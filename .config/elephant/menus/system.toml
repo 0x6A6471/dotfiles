@@ -1,0 +1,41 @@
+name = "system"
+name_pretty = "System"
+icon = "system-shutdown"
+description = "Power options"
+search_name = true
+
+[[entries]]
+text = "Lock"
+keywords = ["lock", "screen"]
+icon = "system-lock-screen"
+actions = { "activate" = "hyprlock" }
+
+[[entries]]
+text = "Suspend"
+keywords = ["sleep", "suspend"]
+icon = "media-playback-pause"
+actions = { "activate" = "systemctl suspend" }
+
+[[entries]]
+text = "Hibernate"
+keywords = ["hibernate"]
+icon = "weather-clear-night"
+actions = { "activate" = "systemctl hibernate" }
+
+[[entries]]
+text = "Logout"
+keywords = ["logout", "exit"]
+icon = "system-log-out"
+actions = { "activate" = "loginctl terminate-user $USER" }
+
+[[entries]]
+text = "Reboot"
+keywords = ["reboot", "restart"]
+icon = "system-reboot"
+actions = { "activate" = "systemctl reboot" }
+
+[[entries]]
+text = "Shutdown"
+keywords = ["poweroff", "shutdown", "power"]
+icon = "system-shutdown"
+actions = { "activate" = "systemctl poweroff" }

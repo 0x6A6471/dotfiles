@@ -1,9 +1,10 @@
-@import "../omarchy/current/theme/waybar.css";
+@define-color background #000000;
+@define-color foreground #ffffff;
+@define-color accent #484848;
 
 * {
   background-color: @background;
   color: @foreground;
-
   border: none;
   border-radius: 0;
   min-height: 0;
@@ -33,7 +34,7 @@ window#waybar {
 }
 
 #workspaces button label {
-  color: @accent
+  color: @accent;
 }
 
 /* #workspaces button.empty { */
@@ -42,7 +43,7 @@ window#waybar {
 
 
 #workspaces button.active label {
-  color: @foreground
+  color: @foreground;
 }
 
 #custom-arch {
