@@ -29,6 +29,12 @@ hl.monitor({
 	scale = 2,
 })
 
+hl.config({
+	xwayland = {
+		force_zero_scaling = true,
+	},
+})
+
 ---------------------
 ---- MY PROGRAMS ----
 ---------------------
@@ -51,6 +57,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("systemctl --user start elephant.service")
 	hl.exec_cmd("waybar")
 	hl.exec_cmd("mako")
+	hl.exec_cmd("command -v hypridle >/dev/null 2>&1 && hypridle")
 	hl.exec_cmd("swaybg -i /home/x6a6471/.config/hypr/backgrounds/space.jpg -m fill")
 end)
 
@@ -240,6 +247,12 @@ hl.config({
 		touchpad = {
 			natural_scroll = false,
 		},
+	},
+
+	misc = {
+		force_default_wallpaper = 0,
+		disable_hyprland_logo = true,
+		focus_on_activate = true,
 	},
 })
 

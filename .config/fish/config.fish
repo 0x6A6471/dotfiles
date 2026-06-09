@@ -1,15 +1,15 @@
-  # alias
-  alias vim="nvim"
-  alias vt='vim "+terminal"'
+# alias
+alias vim="nvim"
+alias vt='vim "+terminal"'
 
-  # git
-  alias gs="git status"
-  alias ga="git add"
-  alias gb="git branch"
-  alias gbd="git branch -D"
-  alias gc="git commit"
-  alias gp="git push"
-  alias gpp="git pull"
+# git
+alias gs="git status"
+alias ga="git add"
+alias gb="git branch"
+alias gbd="git branch -D"
+alias gc="git commit"
+alias gp="git push"
+alias gpp="git pull"
 
 # eza
 alias ls='eza --icons=never'
