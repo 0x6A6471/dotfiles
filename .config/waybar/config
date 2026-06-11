@@ -4,7 +4,20 @@
   "position": "top",
   "spacing": 0,
   "height": 26,
-  "modules-left": ["custom/arch", "hyprland/workspaces"],
+  "modules-left": [
+    "custom/arch",
+    "custom/workspace-listener",
+    "custom/workspace1",
+    "custom/workspace2",
+    "custom/workspace3",
+    "custom/workspace4",
+    "custom/workspace5",
+    "custom/workspace6",
+    "custom/workspace7",
+    "custom/workspace8",
+    "custom/workspace9",
+    "custom/workspace10"
+  ],
   "modules-center": ["clock"],
   "modules-right": [
     "group/tray-expander",
@@ -14,29 +27,100 @@
     "cpu",
     "battery"
   ],
-  "hyprland/workspaces": {
-    "on-click": "activate",
-    "format": "{icon}",
-    "format-icons": {
-      "default": "",
-      "1": "I",
-      "2": "II",
-      "3": "III",
-      "4": "IV",
-      "5": "V",
-      "6": "VI",
-      "7": "VII",
-      "8": "VIII",
-      "9": "IX",
-      "10": "X"
-    },
-    "persistent-workspaces": {
-      "1": [],
-      "2": [],
-      "3": [],
-      "4": [],
-      "5": []
-    }
+  "custom/workspace-listener": {
+    "exec": "python3 /home/x6a6471/.config/waybar/workspace-listener.py",
+    "format": "",
+    "tooltip": false
+  },
+  "custom/workspace1": {
+    "exec": "sh /home/x6a6471/.config/waybar/workspace.sh 1 I 1",
+    "return-type": "json",
+    "signal": 8,
+    "hide-empty-text": true,
+    "format": "{text}",
+    "tooltip": false,
+    "on-click": "hyprctl dispatch 'hl.dsp.focus({ workspace = 1 })' >/dev/null 2>&1"
+  },
+  "custom/workspace2": {
+    "exec": "sh /home/x6a6471/.config/waybar/workspace.sh 2 II 1",
+    "return-type": "json",
+    "signal": 8,
+    "hide-empty-text": true,
+    "format": "{text}",
+    "tooltip": false,
+    "on-click": "hyprctl dispatch 'hl.dsp.focus({ workspace = 2 })' >/dev/null 2>&1"
+  },
+  "custom/workspace3": {
+    "exec": "sh /home/x6a6471/.config/waybar/workspace.sh 3 III 1",
+    "return-type": "json",
+    "signal": 8,
+    "hide-empty-text": true,
+    "format": "{text}",
+    "tooltip": false,
+    "on-click": "hyprctl dispatch 'hl.dsp.focus({ workspace = 3 })' >/dev/null 2>&1"
+  },
+  "custom/workspace4": {
+    "exec": "sh /home/x6a6471/.config/waybar/workspace.sh 4 IV 1",
+    "return-type": "json",
+    "signal": 8,
+    "hide-empty-text": true,
+    "format": "{text}",
+    "tooltip": false,
+    "on-click": "hyprctl dispatch 'hl.dsp.focus({ workspace = 4 })' >/dev/null 2>&1"
+  },
+  "custom/workspace5": {
+    "exec": "sh /home/x6a6471/.config/waybar/workspace.sh 5 V 1",
+    "return-type": "json",
+    "signal": 8,
+    "hide-empty-text": true,
+    "format": "{text}",
+    "tooltip": false,
+    "on-click": "hyprctl dispatch 'hl.dsp.focus({ workspace = 5 })' >/dev/null 2>&1"
+  },
+  "custom/workspace6": {
+    "exec": "sh /home/x6a6471/.config/waybar/workspace.sh 6 VI 0",
+    "return-type": "json",
+    "signal": 8,
+    "hide-empty-text": true,
+    "format": "{text}",
+    "tooltip": false,
+    "on-click": "hyprctl dispatch 'hl.dsp.focus({ workspace = 6 })' >/dev/null 2>&1"
+  },
+  "custom/workspace7": {
+    "exec": "sh /home/x6a6471/.config/waybar/workspace.sh 7 VII 0",
+    "return-type": "json",
+    "signal": 8,
+    "hide-empty-text": true,
+    "format": "{text}",
+    "tooltip": false,
+    "on-click": "hyprctl dispatch 'hl.dsp.focus({ workspace = 7 })' >/dev/null 2>&1"
+  },
+  "custom/workspace8": {
+    "exec": "sh /home/x6a6471/.config/waybar/workspace.sh 8 VIII 0",
+    "return-type": "json",
+    "signal": 8,
+    "hide-empty-text": true,
+    "format": "{text}",
+    "tooltip": false,
+    "on-click": "hyprctl dispatch 'hl.dsp.focus({ workspace = 8 })' >/dev/null 2>&1"
+  },
+  "custom/workspace9": {
+    "exec": "sh /home/x6a6471/.config/waybar/workspace.sh 9 IX 0",
+    "return-type": "json",
+    "signal": 8,
+    "hide-empty-text": true,
+    "format": "{text}",
+    "tooltip": false,
+    "on-click": "hyprctl dispatch 'hl.dsp.focus({ workspace = 9 })' >/dev/null 2>&1"
+  },
+  "custom/workspace10": {
+    "exec": "sh /home/x6a6471/.config/waybar/workspace.sh 10 X 0",
+    "return-type": "json",
+    "signal": 8,
+    "hide-empty-text": true,
+    "format": "{text}",
+    "tooltip": false,
+    "on-click": "hyprctl dispatch 'hl.dsp.focus({ workspace = 10 })' >/dev/null 2>&1"
   },
   "custom/arch": {
     "format": "󰣇",
@@ -123,4 +207,3 @@
     "spacing": 12
   }
 }
-

@@ -27,13 +27,33 @@ window#waybar {
   margin: 0;
 }
 
-#workspaces button {
+#workspaces button,
+#custom-workspace1,
+#custom-workspace2,
+#custom-workspace3,
+#custom-workspace4,
+#custom-workspace5,
+#custom-workspace6,
+#custom-workspace7,
+#custom-workspace8,
+#custom-workspace9,
+#custom-workspace10 {
   padding: 0 4px;
   margin: 0 1.5px;
   background: transparent;
 }
 
-#workspaces button label {
+#workspaces button label,
+#custom-workspace1,
+#custom-workspace2,
+#custom-workspace3,
+#custom-workspace4,
+#custom-workspace5,
+#custom-workspace6,
+#custom-workspace7,
+#custom-workspace8,
+#custom-workspace9,
+#custom-workspace10 {
   color: @accent;
 }
 
@@ -42,8 +62,24 @@ window#waybar {
 /* } */
 
 
-#workspaces button.active label {
+#workspaces button.active label,
+#custom-workspace1.active,
+#custom-workspace2.active,
+#custom-workspace3.active,
+#custom-workspace4.active,
+#custom-workspace5.active,
+#custom-workspace6.active,
+#custom-workspace7.active,
+#custom-workspace8.active,
+#custom-workspace9.active,
+#custom-workspace10.active {
   color: @foreground;
+}
+
+#custom-workspace-listener {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
 }
 
 #custom-arch {

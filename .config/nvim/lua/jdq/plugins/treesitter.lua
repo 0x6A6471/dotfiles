@@ -1,57 +1,45 @@
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
-		branch = "main",
+		branch = "master",
 		lazy = false,
 		build = ":TSUpdate",
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter-context",
 		},
 		config = function()
-			local ts = require("nvim-treesitter")
-
-			ts.setup()
-
-			-- ts.install({
-			-- 	"c",
-			-- 	"eex",
-			-- 	"elixir",
-			-- 	"heex",
-			-- 	"javascript",
-			-- 	"lua",
-			-- 	"markdown",
-			-- 	"markdown_inline",
-			-- 	"ocaml",
-			-- 	"ocaml_interface",
-			-- 	"python",
-			-- 	"query",
-			-- 	"rust",
-			-- 	"typescript",
-			-- 	"tsx",
-			-- 	"vim",
-			-- 	"vimdoc",
-			-- })
-
-			-- local indent_disabled = {
-			-- 	ocaml = true,
-			-- 	ocaml_interface = true,
-			-- 	ocaml_mlx = true,
-			-- }
-			--
-			-- vim.api.nvim_create_autocmd("FileType", {
-			-- 	callback = function(args)
-			-- 		if not pcall(vim.treesitter.start, args.buf) then
-			-- 			return
-			-- 		end
-			--
-			-- 		local filetype = vim.bo[args.buf].filetype
-			-- 		if indent_disabled[filetype] then
-			-- 			return
-			-- 		end
-			--
-			-- 		vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-			-- 	end,
-			-- })
+			require("nvim-treesitter.configs").setup({
+				ensure_installed = {
+					"c",
+					"eex",
+					"elixir",
+					"heex",
+					"javascript",
+					"lua",
+					"markdown",
+					"markdown_inline",
+					"ocaml",
+					"ocaml_interface",
+					"python",
+					"query",
+					"rust",
+					"typescript",
+					"tsx",
+					"vim",
+					"vimdoc",
+				},
+				highlight = {
+					enable = true,
+				},
+				indent = {
+					enable = true,
+					disable = {
+						"ocaml",
+						"ocaml_interface",
+						"ocaml_mlx",
+					},
+				},
+			})
 		end,
 	},
 }

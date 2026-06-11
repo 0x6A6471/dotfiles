@@ -57,8 +57,8 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("systemctl --user start elephant.service")
 	hl.exec_cmd("waybar")
 	hl.exec_cmd("mako")
-	hl.exec_cmd("command -v hypridle >/dev/null 2>&1 && hypridle")
-	hl.exec_cmd("swaybg -i /home/x6a6471/.config/hypr/backgrounds/space.jpg -m fill")
+	hl.exec_cmd("hypridle")
+	hl.exec_cmd("swaybg -i /home/x6a6471/.config/hypr/backgrounds/desk.png -m fill")
 end)
 
 -------------------------------

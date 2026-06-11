@@ -14,7 +14,7 @@ actions = { "activate" = "hyprlock" }
 text = "Suspend"
 keywords = ["sleep", "suspend"]
 icon = "media-playback-pause"
-actions = { "activate" = "systemctl suspend" }
+actions = { "activate" = "sh -c 'hyprlock & sleep 0.5; systemctl suspend'" }
 
 [[entries]]
 text = "Hibernate"
@@ -26,7 +26,7 @@ actions = { "activate" = "systemctl hibernate" }
 text = "Logout"
 keywords = ["logout", "exit"]
 icon = "system-log-out"
-actions = { "activate" = "loginctl terminate-user $USER" }
+actions = { "activate" = "sh -c 'loginctl terminate-user \"$USER\"'" }
 
 [[entries]]
 text = "Reboot"
