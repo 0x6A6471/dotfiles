@@ -11,5 +11,5 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({{import = "jdq.plugins"}, {import = "jdq.plugins.lsp"}})
+require("lazy").setup({{import = "0x6A6471.plugins"}, {import = "0x6A6471.plugins.lsp"}})
 
