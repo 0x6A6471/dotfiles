@@ -294,6 +294,9 @@ hl.bind(
 	)
 )
 
+-- screen recording (toggle)
+hl.bind(mainMod .. " + SHIFT + V", hl.dsp.exec_cmd("~/.config/hypr/scripts/screenrecord.sh"))
+
 -- Override Super+J/K for cycling and swapping windows
 hl.bind(mainMod .. " + J", hl.dsp.window.cycle_next())
 hl.bind(mainMod .. " + K", hl.dsp.window.cycle_next({ direction = "prev" }))
