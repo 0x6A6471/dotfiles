@@ -57,8 +57,9 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("systemctl --user start elephant.service")
 	hl.exec_cmd("waybar")
 	hl.exec_cmd("mako")
+	hl.exec_cmd("swayosd-server")
 	hl.exec_cmd("hypridle")
-	hl.exec_cmd("swaybg -i /home/x6a6471/.config/hypr/backgrounds/desk.png -m fill")
+	hl.exec_cmd("swaybg -i /home/x6a6471/.config/hypr/backgrounds/background.jpg -m fill")
 end)
 
 -------------------------------
@@ -347,32 +348,32 @@ hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
 -- Laptop multimedia keys for volume and LCD brightness
 hl.bind(
 	"XF86AudioRaiseVolume",
-	hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
+	hl.dsp.exec_cmd("swayosd-client --output-volume raise"),
 	{ locked = true, repeating = true }
 )
 hl.bind(
 	"XF86AudioLowerVolume",
-	hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),
+	hl.dsp.exec_cmd("swayosd-client --output-volume lower"),
 	{ locked = true, repeating = true }
 )
 hl.bind(
 	"XF86AudioMute",
-	hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),
+	hl.dsp.exec_cmd("swayosd-client --output-volume mute-toggle"),
 	{ locked = true, repeating = true }
 )
 hl.bind(
 	"XF86AudioMicMute",
-	hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),
+	hl.dsp.exec_cmd("swayosd-client --input-volume mute-toggle"),
 	{ locked = true, repeating = true }
 )
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"), { locked = true, repeating = true })
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"), { locked = true, repeating = true })
 
 -- Requires playerctl
-hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
-hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
-hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
-hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
+hl.bind("XF86AudioNext", hl.dsp.exec_cmd("swayosd-client --playerctl next"), { locked = true })
+hl.bind("XF86AudioPause", hl.dsp.exec_cmd("swayosd-client --playerctl play-pause"), { locked = true })
+hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("swayosd-client --playerctl play-pause"), { locked = true })
+hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("swayosd-client --playerctl prev"), { locked = true })
 
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----
