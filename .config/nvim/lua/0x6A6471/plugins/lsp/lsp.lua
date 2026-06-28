@@ -21,6 +21,7 @@ return {
 				vim.lsp.buf.definition()
 			end, opts)
 			vim.keymap.set("n", "K", function()
+				vim.g.syntax_on = nil
 				vim.lsp.buf.hover({ border = "single" })
 			end, opts)
 			vim.keymap.set("n", "<leader>vws", function()

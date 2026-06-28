@@ -4,9 +4,6 @@ return {
 		branch = "master",
 		lazy = false,
 		build = ":TSUpdate",
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter-context",
-		},
 		config = function()
 			require("nvim-treesitter.configs").setup({
 				ensure_installed = {
@@ -30,9 +27,13 @@ return {
 				},
 				highlight = {
 					enable = true,
+					disable = {
+						"markdown",
+						"markdown_inline",
+					},
 				},
 				indent = {
-					enable = true,
+					enable = false,
 					disable = {
 						"ocaml",
 						"ocaml_interface",

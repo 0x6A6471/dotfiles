@@ -72,7 +72,7 @@ return {
 			if file_exists(root .. "/biome.json") or file_exists(root .. "/biome.jsonc") then
 				return { "biome-check" }
 			end
-			return { "prettier" }
+			return { "jq" }
 		end
 
 		conform.setup({

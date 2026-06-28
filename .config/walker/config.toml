@@ -5,6 +5,9 @@ hide_action_hints = true
 hide_return_action = true
 actions_as_menu = false
 
+[providers]
+default = ["desktopapplications", "calc", "menus"]
+
 [providers.actions]
 desktopapplications = [
   { action = "start", default = true, bind = "Return", after = "Close" },
