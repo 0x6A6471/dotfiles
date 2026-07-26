@@ -7,7 +7,7 @@ return {
 		"stevearc/conform.nvim",
 	},
 	config = function()
-		local capabilities = require("blink.cmp").get_lsp_capabilities().capabilities
+		local capabilities = require("blink.cmp").get_lsp_capabilities()
 		vim.lsp.document_color.enable(false)
 
 		vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
@@ -58,6 +58,12 @@ return {
 		vim.lsp.config("clangd", {
 			capabilities = capabilities,
 			on_attach = on_attach,
+			cmd = {
+				"clangd",
+				"--query-driver="
+					.. vim.env.HOME
+					.. "/.espressif/tools/xtensa-esp-elf/**/bin/xtensa-esp32s3-elf-gcc",
+			},
 		})
 
 		vim.lsp.config("cssls", {

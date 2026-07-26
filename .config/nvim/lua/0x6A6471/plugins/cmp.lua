@@ -67,11 +67,16 @@ return {
 		},
 		-- (Default) Only show the documentation popup when manually triggered
 		completion = {
+			trigger = {
+				show_on_keyword = true,
+				show_on_trigger_character = true,
+			},
 			documentation = {
 				auto_show = true,
 				auto_show_delay_ms = 500,
 			},
 			menu = {
+				auto_show = true,
 				draw = {
 					columns = {
 						{ "label", "label_description", gap = 1 },
