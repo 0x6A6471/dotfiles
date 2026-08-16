@@ -300,7 +300,7 @@ hl.bind(mainMod .. " + SHIFT + V", hl.dsp.exec_cmd("~/.config/hypr/scripts/scree
 
 -- Override Super+J/K for cycling and swapping windows
 hl.bind(mainMod .. " + J", hl.dsp.window.cycle_next())
-hl.bind(mainMod .. " + K", hl.dsp.window.cycle_next({ direction = "prev" }))
+hl.bind(mainMod .. " + K", hl.dsp.window.cycle_next({ next = false }))
 hl.bind(mainMod .. " + SHIFT + J", hl.dsp.window.swap({ direction = "left" }))
 hl.bind(mainMod .. " + SHIFT + K", hl.dsp.window.swap({ direction = "right" }))
 

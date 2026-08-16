@@ -28,6 +28,10 @@ bind \cf fcd
 set -gx SHELL /usr/bin/fish
 
 # herdr
+if test "$HERDR_ENV" = "1"; and command -q infocmp; and infocmp xterm-kitty >/dev/null 2>&1
+    set -gx TERM xterm-kitty
+end
+
 function hfzf --description "Fuzzy pick a Herdr session"
     if not command -q herdr; or not command -q jq; or not command -q fzf
         echo "hfzf: requires herdr, jq, and fzf" >&2
