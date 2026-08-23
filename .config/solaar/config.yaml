@@ -9,7 +9,7 @@
     logivoice-nr-state, logivoice-ng-state, logivoice-comp-state, logivoice-deesser-state, logivoice-depopper-state, logivoice-limiter-state, logivoice-hpf-state,
     backlight_level, backlight_duration_hands_out, backlight_duration_hands_in, backlight_duration_powered, per-key-lighting, analog-button-tuning]
   _battery: 4100
-  _config_cookie: [181, 178]
+  _config_cookie: [181, 179]
   _modelId: B04200000000
   _sensitive: {change-host: false, dpi: false, force-sensing: false, haptic-level: false, hires-scroll-mode: ignore, hires-smooth-invert: ignore, hires-smooth-resolution: ignore,
     scroll-ratchet: true, smart-shift: false}
