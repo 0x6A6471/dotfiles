@@ -134,10 +134,10 @@ return {
 			vim.api.nvim_create_autocmd("ColorScheme", {
 				callback = strip_all_bold,
 			})
-			vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", { undercurl = true, sp = "#ff7676", fg = "#ff7676" })
-			vim.api.nvim_set_hl(0, "DiagnosticUnderlineWarn", { undercurl = true, sp = "#d9ba73", fg = "#d9ba73" })
-			vim.api.nvim_set_hl(0, "DiagnosticUnderlineInfo", { undercurl = true, sp = "#8ebeec", fg = "#8ebeec" })
-			vim.api.nvim_set_hl(0, "DiagnosticUnderlineHint", { undercurl = true, sp = "#8ebeec", fg = "#8ebeec" })
+			vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", { undercurl = true, sp = "#ff7676" })
+			vim.api.nvim_set_hl(0, "DiagnosticUnderlineWarn", { undercurl = true, sp = "#d9ba73" })
+			vim.api.nvim_set_hl(0, "DiagnosticUnderlineInfo", { undercurl = true, sp = "#8ebeec" })
+			vim.api.nvim_set_hl(0, "DiagnosticUnderlineHint", { undercurl = true, sp = "#8ebeec" })
 		end,
 	},
 }

@@ -59,7 +59,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("mako")
 	hl.exec_cmd("swayosd-server")
 	hl.exec_cmd("hypridle")
-	hl.exec_cmd("swaybg -i /home/x6a6471/.config/hypr/backgrounds/background.jpg -m fill")
+	hl.exec_cmd("swaybg -i /home/x6a6471/.config/hypr/backgrounds/bg.png -m fill")
 end)
 
 -------------------------------
@@ -97,8 +97,8 @@ hl.env("GTK_THEME", "Adwaita:dark")
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
 	general = {
-		gaps_in = 5,
-		gaps_out = 10,
+		gaps_in = 4,
+		gaps_out = 8,
 
 		border_size = 0,
 
