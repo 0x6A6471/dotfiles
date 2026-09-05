@@ -60,9 +60,7 @@ return {
 			on_attach = on_attach,
 			cmd = {
 				"clangd",
-				"--query-driver="
-					.. vim.env.HOME
-					.. "/.espressif/tools/xtensa-esp-elf/**/bin/xtensa-esp32s3-elf-gcc",
+				"--query-driver=" .. vim.env.HOME .. "/.espressif/tools/xtensa-esp-elf/**/bin/xtensa-esp32s3-elf-gcc",
 			},
 		})
 
@@ -123,6 +121,17 @@ return {
 			},
 		})
 
+		local svelte_on_attach = vim.lsp.config.svelte.on_attach
+		vim.lsp.config("svelte", {
+			capabilities = capabilities,
+			on_attach = function(client, bufnr)
+				if svelte_on_attach then
+					svelte_on_attach(client, bufnr)
+				end
+				on_attach(client, bufnr)
+			end,
+		})
+
 		vim.lsp.config("tailwindcss", {
 			capabilities = capabilities,
 			on_attach = on_attach,
@@ -157,6 +166,7 @@ return {
 		vim.lsp.enable("lua_ls")
 		vim.lsp.enable("ocamllsp")
 		vim.lsp.enable("tailwindcss")
+		vim.lsp.enable("svelte")
 		-- vim.lsp.enable("ts_ls")
 		vim.lsp.enable("vtsls")
 	end,

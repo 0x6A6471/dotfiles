@@ -22,6 +22,7 @@ return {
 				"elixirls",
 				"html",
 				"lua_ls",
+				"svelte",
 				"tailwindcss",
 				-- "ts_ls",
 			},

@@ -116,6 +116,7 @@ return {
 				ocaml = { "ml-format" },
 				ocaml_mlx = { "ocamlformat_mlx" },
 				python = { "isort", "black" },
+				svelte = get_web_formatters,
 				-- elixir = { "mix" },
 				-- eelixir = { "mix" },
 				-- heex = { "mix" },

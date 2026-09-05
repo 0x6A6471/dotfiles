@@ -21,6 +21,19 @@ vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 10
 
+local function recover_deleted_cwd()
+	if vim.uv.cwd() == nil then
+		vim.api.nvim_set_current_dir(vim.env.HOME)
+	end
+end
+
+-- Plugins such as Harpoon require a valid cwd when buffers change or Neovim exits.
+recover_deleted_cwd()
+vim.api.nvim_create_autocmd({ "BufLeave", "VimLeavePre" }, {
+	group = vim.api.nvim_create_augroup("recover-deleted-cwd", { clear = true }),
+	callback = recover_deleted_cwd,
+})
+
 -- terminal mode
 vim.api.nvim_create_autocmd("TermOpen", {
 	group = vim.api.nvim_create_augroup("custom-term-open", { clear = true }),

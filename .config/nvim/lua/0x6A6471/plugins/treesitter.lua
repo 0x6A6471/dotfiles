@@ -1,8 +1,10 @@
 local languages = {
 	"c",
+	"css",
 	"eex",
 	"elixir",
 	"heex",
+	"html",
 	"javascript",
 	"lua",
 	"markdown",
@@ -12,6 +14,7 @@ local languages = {
 	"python",
 	"query",
 	"rust",
+	"svelte",
 	"typescript",
 	"tsx",
 	"vim",
