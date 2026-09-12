@@ -27,29 +27,57 @@ end
 bind \cf fcd
 set -gx SHELL /usr/bin/fish
 
-# herdr
-if test "$HERDR_ENV" = "1"; and command -q infocmp; and infocmp xterm-kitty >/dev/null 2>&1
-    set -gx TERM xterm-kitty
-end
-
-function hfzf --description "Fuzzy pick a Herdr session"
-    if not command -q herdr; or not command -q jq; or not command -q fzf
-        echo "hfzf: requires herdr, jq, and fzf" >&2
+# tmux
+function tsearch --description "Search scrollback across all tmux panes"
+    if not command -q tmux
+        echo "tsearch: tmux is not installed" >&2
         return 1
     end
 
-    set -l selection (herdr session list --json \
-        | jq -r '.sessions[] | [.name, (if .running then "running" else "stopped" end)] | @tsv' \
-        | fzf --delimiter=\t --with-nth=1,2 --no-sort --prompt='Herdr session> ')
-
-    if test -n "$selection"
-        set -l fields (string split \t -- "$selection")
-        herdr session attach "$fields[1]"
+    if test (count $argv) -eq 0
+        echo "usage: tsearch <pattern>"
+        return 2
     end
+
+    set -l pattern (string join " " -- $argv)
+
+    for pane in (tmux list-panes -a -F '#{session_name}:#{window_index}.#{pane_index}')
+        tmux capture-pane -pt $pane -S - -p | rg -n --color=always -- "$pattern"
+        if test $pipestatus[2] -eq 0
+            set -l title (tmux display-message -pt $pane -p '#{session_name}:#{window_index}.#{pane_index} #{window_name} #{pane_current_command}')
+            printf '\n[%s]\n\n' "$title"
+        end
+    end
+end
+
+function tfzf --description "Fuzzy pick a tmux session"
+    if not command -q tmux
+        echo "tfzf: tmux is not installed" >&2
+        return 1
+    end
+
+    if not command -q fzf
+        echo "tfzf: fzf is not installed" >&2
+        return 1
+    end
+
+    set -l session (tmux list-sessions -F '#{session_name}: #{session_windows} windows (created #{session_created_string})' | fzf --ansi --no-sort | string split -m1 ':' | head -n1)
+
+    if test -z "$session"
+        commandline -f repaint
+        return
+    end
+
+    if set -q TMUX
+        tmux switch-client -t "$session"
+    else
+        tmux attach-session -t "$session"
+    end
+
     commandline -f repaint
 end
 
-bind \ct hfzf
+bind \ct tfzf
 
 # bun
 set --export BUN_INSTALL "$HOME/.bun"

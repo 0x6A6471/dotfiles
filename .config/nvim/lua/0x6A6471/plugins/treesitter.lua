@@ -1,5 +1,6 @@
 local languages = {
 	"c",
+	"cpp",
 	"css",
 	"eex",
 	"elixir",

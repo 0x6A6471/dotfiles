@@ -3,7 +3,10 @@ return {
 	dependencies = { "nvim-lua/plenary.nvim" },
 	opts = {
 		highlight = {
-			pattern = [[.*<(KEYWORDS)%(\([^)]*\))?\s*:]],
+			before = "fg",
+			keyword = "fg",
+			after = "",
+			pattern = [[.*<((KEYWORDS)%(\([^)]*\))?\s*:)]],
 		},
 		search = {
 			pattern = [[\b(KEYWORDS)(\([^)]*\))?:]],
