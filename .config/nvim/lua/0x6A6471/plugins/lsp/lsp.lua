@@ -140,6 +140,33 @@ return {
 					colorDecorators = false,
 				},
 			},
+			-- Anchor the server to the workspace root so monorepos spawn a single
+			-- Tailwind client instead of one per package (package.json w/ tailwind).
+			root_dir = function(bufnr, on_dir)
+				local root = vim.fs.root(bufnr, {
+					".git",
+					"turbo.json",
+					"nx.json",
+					"pnpm-workspace.yaml",
+					"yarn.lock",
+					"pnpm-lock.yaml",
+					"package-lock.json",
+					"bun.lock",
+					"bun.lockb",
+				}) or vim.fs.root(bufnr, {
+					"tailwind.config.js",
+					"tailwind.config.cjs",
+					"tailwind.config.mjs",
+					"tailwind.config.ts",
+					"postcss.config.js",
+					"postcss.config.cjs",
+					"postcss.config.mjs",
+					"postcss.config.ts",
+				})
+				if root then
+					on_dir(root)
+				end
+			end,
 		})
 
 		-- vim.lsp.config("ts_ls", {
@@ -150,11 +177,16 @@ return {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			settings = {
+				-- tsserver options belong under `typescript.tsserver`
+				-- (`vtsls.tsserver` only supports globalPlugins).
+				typescript = {
+					tsserver = {
+						-- Avoid spawning a second, syntax-only tsserver per project.
+						useSyntaxServer = "never",
+					},
+				},
 				vtsls = {
 					autoUseWorkspaceTsdk = true,
-					tsserver = {
-						pluginPaths = { "./node_modules" },
-					},
 				},
 			},
 		})
