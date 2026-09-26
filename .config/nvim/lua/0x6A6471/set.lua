@@ -52,5 +52,9 @@ vim.api.nvim_set_keymap("t", "<C-w>j", [[<C-\><C-n><C-w>j]], { noremap = true, s
 vim.api.nvim_set_keymap("t", "<C-w>k", [[<C-\><C-n><C-w>k]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap("t", "<C-w>l", [[<C-\><C-n><C-w>l]], { noremap = true, silent = true })
 
-vim.opt.list = false
-vim.opt.listchars = { tab = "→ ", eol = "↲", space = "·" }
+-- vim.opt.list = false
+vim.opt.list = true
+vim.opt.listchars = {
+	space = "·",
+	tab = "  ",
+}

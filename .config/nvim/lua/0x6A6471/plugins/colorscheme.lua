@@ -121,12 +121,15 @@ return {
 					pink = "#f2a4db",
 					cyan = "#5abfb5",
 				},
-				on_highlights = function(hl, _)
+				on_highlights = function(hl, colors)
 					for _, spec in pairs(hl) do
 						if type(spec) == "table" then
 							spec.bold = false
 						end
 					end
+
+					hl.Whitespace = { fg = colors.line } -- #272727
+					hl.CursorLine = { bg = "#101010" }
 				end,
 			})
 			vim.cmd("colorscheme koda")

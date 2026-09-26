@@ -124,7 +124,7 @@
   },
   "custom/arch": {
     "format": "󰣇",
-    "tooltip-format": "Arch Linux"
+    "tooltip-format": "Arch, btw"
   },
 
   "cpu": {
