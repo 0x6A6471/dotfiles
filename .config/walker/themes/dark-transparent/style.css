@@ -66,17 +66,19 @@ viewport,
 }
 
 row,
-.item {
+.item,
+gridview > child {
   background-color: transparent;
   color: @fg;
   border: none;
   margin: 0px;
   padding: 0px;
+  min-height: 0px;
 }
 
 .item-box {
   margin: 0px;
-  padding: 2px 8px;
+  padding: 8px;
 }
 
 /* Selected row: visible, but blends with dark theme */
@@ -85,13 +87,16 @@ row:hover,
 .item:selected,
 .item:hover,
 .item.active,
-.selected {
+.selected,
+gridview > child:selected .item-box,
+gridview > child:hover .item-box {
   background-color: @selected;
   color: @fg;
 }
 
 row:selected:hover,
-.item:selected:hover {
+.item:selected:hover,
+gridview > child:selected:hover .item-box {
   background-color: @selected;
 }
 
@@ -117,8 +122,6 @@ image,
   -gtk-icon-size: 24px;
   min-width: 24px;
   min-height: 24px;
-  max-width: 24px;
-  max-height: 24px;
 }
 
 /* Kill GTK blue selection */
